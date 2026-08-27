@@ -1,0 +1,32 @@
+{
+  "name": "dating_backend",
+  "version": "1.0.0",
+  "description": "working on dating application backend using node js express prisma zod",
+  "main": "app.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbadatHaque/DatingApplication.git"
+  },
+  "keywords": [
+    "node",
+    "zod",
+    "prisam",
+    "dating",
+    "express",
+    "backend"
+  ],
+  "author": "sk abadat haque",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AbadatHaque/DatingApplication/issues"
+  },
+  "homepage": "https://github.com/AbadatHaque/DatingApplication#readme",
+  "devDependencies": {
+    "@types/node": "^26.4.0",
+    "tsx": "^4.23.12",
+    "typescript": "^7.0.2"
+  }
+}
