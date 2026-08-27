@@ -1,7 +1,8 @@
 {
-  "name": "dating_backend",
+  "name": "backend",
   "version": "1.0.0",
-  "description": "working on dating application backend using node js express prisma zod",
+  "description": "",
+  "type": "module",
   "main": "app.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,15 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/AbadatHaque/DatingApplication.git"
   },
-  "keywords": [
-    "node",
-    "zod",
-    "prisam",
-    "dating",
-    "express",
-    "backend"
-  ],
-  "author": "sk abadat haque",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/AbadatHaque/DatingApplication/issues"
@@ -26,7 +19,14 @@
   "homepage": "https://github.com/AbadatHaque/DatingApplication#readme",
   "devDependencies": {
     "@types/node": "^26.4.0",
+    "prisma": "^7.10.0",
     "tsx": "^4.23.12",
     "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "@prisma/adapter-mariadb": "^7.10.0",
+    "@prisma/client": "^7.10.0",
+    "dotenv": "^17.4.2",
+    "mariadb": "^3.5.3"
   }
 }
