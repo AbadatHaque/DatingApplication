@@ -11,3 +11,21 @@ generator client {
 datasource db {
   provider = "mysql"
 }
+
+model User {
+  id              Int       @id @default(autoincrement())
+  email           String    @unique
+  name            String?
+  password        String    @unique
+  dob             DateTime
+  requestsRecived Request[] @relation("requestReceiver")
+  requestsSend    Request[] @relation("requestSender")
+}
+
+model Request {
+  id      Int  @id @default(autoincrement())
+  from_id Int
+  to_id   Int
+  from    User @relation("requestSender", fields: [from_id], references: [id])
+  to      User @relation("requestReceiver", fields: [to_id], references: [id])
+}
