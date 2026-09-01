@@ -6,7 +6,7 @@ import {
 } from "express";
 import UserContriller from "../../../controllers/user.controller.js";
 import { Validation } from "../../../middleware/validation.js";
-import { insertUserSchema, userIdSchame } from "../../../user.schema.js";
+import { insertUserSchema, userIdSchame } from "../../../schema/user.schema.js";
 
 const userRoutes: routeType = Router();
 const controller = new UserContriller();
