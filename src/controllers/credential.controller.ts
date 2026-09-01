@@ -1,36 +1,49 @@
-import { userService } from "../services/user.service.js";
-import type { Response, request } from "express";
-import { defineConfig,env } from "prisma/config";
-import jwt from "jsonwebtoken"
+import { Router, type Request, type Response } from "express";
+import {
+  getUserById,
+  getToken,
+  setCookie,
+  isMatchPassword,
+} from "../services/index.js";
+import { prismaAdapter } from "../lib/prismaAdapter.js";
 
-
-class CredentialController{
-
-    login=async (req:Request,res:Response)=>{
-        try{
-        const {id,password} = req.body;
-            const user = userService.getUserById(id);
-            if(!user){
-                return res.status(404).json({
-                    message:"Credential was wrong."
-                })
-            }
-
-             const token = req.cookies.token;
-               if (!token) {
-                return res.status(401).json({
-                message: "Token not found",
-                });
-            }
-
-            const  privateKey = env("privateJWTKey")
-            const  decoded = jwt.verify(token, privateKey);
-
-
-            
-        }catch(error){
-
-        }
-  
+class CredentialController {
+  login = async (req: Request, res: Response) => {
+    try {
+      const { id, password } = req.body;
+      const user = await getUserById(id);
+      const isPasswordMatch = await isMatchPassword(password, user.password);
+      if (!user || !isPasswordMatch) {
+        return res.status(400).json({
+          message: "Credential was wrong",
+        });
+      }
+      const token = getToken(user.id);
+      setCookie(res, token);
+      res.status(200).json({
+        message: "successfully login",
+      });
+    } catch (error) {
+      res.status(500).json({
+        message: "Encounter with unknow error",
+        error: error,
+      });
     }
+  };
+
+  register = async (req: Request, res: Response) => {
+    try {
+      await prismaAdapter.user.create(req.body);
+      res.status(201).json({
+        message: "successfull created account",
+      });
+    } catch (error) {
+      res.status(500).json({
+        message: "something error",
+        error: error,
+      });
+    }
+  };
 }
+
+export const authController = new CredentialController();

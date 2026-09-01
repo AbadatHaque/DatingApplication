@@ -3,7 +3,7 @@
 //prismaAdapter
 
 import { error } from "node:console";
-import { prismaAdapter } from "../../lib/prismaAdapter.js";
+import { prismaAdapter } from "../lib/prismaAdapter.js";
 import type { Request, Response } from "express";
 
 export default class UserContriller {
