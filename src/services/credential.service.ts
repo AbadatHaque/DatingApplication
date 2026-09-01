@@ -27,7 +27,7 @@ export async function isMatchPassword(
   password: string,
   passwordHash: string,
 ): Promise<boolean> {
-  const match = await bcrypt.compare(password, passwordHash);
+  const isMatch = await bcrypt.compare(password, passwordHash);
 
-  return match;
+  return isMatch;
 }

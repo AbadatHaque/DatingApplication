@@ -2,8 +2,12 @@ import { Router } from "express";
 import { authController } from "../../../controllers/credential.controller.js";
 import { Validation } from "../../../middleware/validation.js";
 import { insertUserSchema } from "../../../schema/user.schema.js";
-const route = Router();
+export const authRoute = Router();
 
-route.post("/login", authController.login);
+authRoute.post("/login", authController.login);
 
-route.post("/register", Validation(insertUserSchema), authController.register);
+authRoute.post(
+  "/register",
+  Validation(insertUserSchema),
+  authController.register,
+);
