@@ -2,3 +2,4 @@ node_modules/
 node_modules
 npm install -D prisma@7
 npm install @prisma/client@7 @prisma/adapter-mariadb mariadb dotenv
+dist

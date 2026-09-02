@@ -1,14 +1,16 @@
-import "dotenv/config";
+// import "dotenv/config";
 import { PrismaMariaDb } from "@prisma/adapter-mariadb";
 import { env } from "prisma/config";
-import { PrismaClient } from "../generated/prisma/client.js";
+import { PrismaClient } from "../../generated/prisma/client.js";
+import "dotenv/config";
+
 
 const adapter = new PrismaMariaDb({
-  host: env("DATABASE_HOST"),
-  port: Number(env("DATABASE_PORT")),
-  user: env("DATABASE_USER"),
-  password: env("DATABASE_PASSWORD"),
-  database: env("DATABASE_NAME"),
+  host: process.env.DATABASE_HOST || "localhost",
+  port: Number(process.env.DATABASE_PORT || 3306),
+  user: process.env.DATABASE_USER || "root",
+  password: process.env.DATABASE_PASSWORD || "",
+  database: process.env.DATABASE_NAME || "dating_db",
 });
 
 const prismaAdapter = new PrismaClient({

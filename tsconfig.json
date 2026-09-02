@@ -48,33 +48,57 @@
 //   "include": ["src/**/*.ts", "lib/**/*.ts"]
 // }
 
+// {
+//   "compilerOptions": {
+//     "target": "ES2022",
+//     "module": "NodeNext",
+//     "moduleResolution": "NodeNext",
+
+//     "rootDir": "./",
+//     "outDir": "./dist",
+
+//     "types": ["node"],
+
+//     "sourceMap": true,
+//     "declaration": true,
+//     "declarationMap": true,
+
+//     "strict": true,
+//     "noUncheckedIndexedAccess": true,
+//     "exactOptionalPropertyTypes": true,
+
+//     "verbatimModuleSyntax": true,
+//     "isolatedModules": true,
+//     "noUncheckedSideEffectImports": true,
+//     "moduleDetection": "force",
+
+//     "esModuleInterop": true,
+//     "skipLibCheck": true
+//   },
+
+//   "include": ["src/**/*.ts"]
+// }
+
 {
   "compilerOptions": {
     "target": "ES2022",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-
-    "rootDir": "./src",
+    "rootDir": "./",
     "outDir": "./dist",
-
     "types": ["node"],
-
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
-
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
-
     "verbatimModuleSyntax": true,
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
-
     "esModuleInterop": true,
     "skipLibCheck": true
   },
-
-  "include": ["src/**/*.ts"]
+  "include": ["app.ts", "src/**/*.ts"]
 }

@@ -1,6 +1,6 @@
 import { Router, type Request, type Response } from "express";
 import {
-  getUserById,
+  getUserByEmail,
   getToken,
   setCookie,
   isMatchPassword,
@@ -10,8 +10,13 @@ import { prismaAdapter } from "../lib/prismaAdapter.js";
 class CredentialController {
   login = async (req: Request, res: Response) => {
     try {
-      const { id, password } = req.body;
-      const user = await getUserById(id);
+      const { email, password } = req.body;
+      const user = await getUserByEmail(email);
+      if (!user) {
+        return res.status(400).json({
+          message: "Credential was wrong",
+        });
+      }
       const isPasswordMatch = await isMatchPassword(password, user.password);
       if (!user || !isPasswordMatch) {
         return res.status(400).json({
