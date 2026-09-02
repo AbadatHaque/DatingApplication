@@ -14,7 +14,7 @@ class CredentialController {
       console.log(req.body);
       const { email, password } = req.body;
       const user = await getUserByEmail(email);
-
+      console.log(user, "user");
       if (!user) {
         return res.status(400).json({
           message: "Credential was wrong",
@@ -48,15 +48,15 @@ class CredentialController {
       const encodePassword = await bcrypt.hash(password, saltRounds);
       console.log("encodePassword register", encodePassword);
 
-      prismaAdapter.user.create({
+      const user = await prismaAdapter.user.create({
         data: {
           email,
           name,
           password: encodePassword,
-          dob,
+          dob: new Date(dob),
         },
       });
-      console.log("user register");
+      console.log(user, "user register");
       res.status(201).json({
         message: "successfull created account",
       });
