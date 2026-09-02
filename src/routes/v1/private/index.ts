@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { userRoutes } from "./user.route.js";
+import { userRoutes } from "./user.route.ts";
 
 export const authenticateRoutes = Router();
 

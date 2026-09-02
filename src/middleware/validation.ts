@@ -1,18 +1,37 @@
 import type { NextFunction, Request, Response } from "express";
 import { z, type ZodType } from "zod";
 
-export function Validation(schema: ZodType) {
+type ValidationInput = {
+  body?: unknown;
+  params?: Request["params"];
+  query?: Request["query"];
+};
+
+type ValidationOutput = {
+  body?: unknown;
+  params?: Request["params"];
+  query?: Request["query"];
+};
+
+export function Validation<T extends ValidationOutput>(
+  schema: ZodType<T, ValidationInput>,
+) {
   return (req: Request, res: Response, next: NextFunction) => {
     try {
+      console.log("0nd");
+
       const result = schema.parse({
         body: req.body,
         params: req.params,
         query: req.query,
       });
-      //        req.body = result.body;
-      //   req.params = result.params;
-      //   req.query = result.query;
-      next();
+      console.log("1nd");
+
+      //   req.body = result?.body ?? req.body;
+      //   req.params = result?.params ?? req.params;
+      //   req.query = result?.query ?? req.query;
+      console.log("2nd");
+      return next();
     } catch (error) {
       if (error instanceof z.ZodError) {
         return res.status(400).json({
@@ -20,7 +39,8 @@ export function Validation(schema: ZodType) {
           errors: error.issues,
         });
       }
-      next(error);
+
+      return next(error);
     }
   };
 }

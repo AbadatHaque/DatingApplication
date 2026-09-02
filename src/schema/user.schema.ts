@@ -10,6 +10,6 @@ export const insertUserSchema = z.object({
 
 export const userIdSchame = z.object({
   params: z.object({
-    id: z.coerce.number().int().positive(),
+    id: z.string().regex(/^\d+$/),
   }),
 });

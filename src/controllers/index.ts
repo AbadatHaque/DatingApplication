@@ -1,4 +1,4 @@
-export {authController} from "./credential.controller.js"
-import UserContriller  from "./user.controller.js"
+export { authController } from "./credential.controller.ts";
+import UserContriller from "./user.controller.ts";
 
-export const userController = new  UserContriller()
+export const userController = new UserContriller();

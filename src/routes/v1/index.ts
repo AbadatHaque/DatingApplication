@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { authenticateRoutes } from "./private/index.js";
-import { publicRoutes } from "./public/index.js";
+import { authenticateRoutes } from "./private/index.ts";
+import { publicRoutes } from "./public/index.ts";
 
 export const v1Routes = Router();
 

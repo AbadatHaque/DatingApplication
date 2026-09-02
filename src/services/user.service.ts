@@ -1,4 +1,4 @@
-import { prismaAdapter } from "../lib/prismaAdapter.js";
+import { prismaAdapter } from "../lib/prismaAdapter.ts";
 
 export const getUserById = async (id: number) => {
   try {
