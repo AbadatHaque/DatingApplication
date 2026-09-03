@@ -6,5 +6,5 @@ import { tokenValidation } from "../../../middleware/validation.ts";
 export const authenticateRoutes = Router();
 
 authenticateRoutes.use(tokenValidation);
-authenticateRoutes.use("/users", userRoutes);
 authenticateRoutes.use("/profile", profileRoute);
+authenticateRoutes.use("/users", userRoutes);
