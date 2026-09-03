@@ -67,6 +67,13 @@ class CredentialController {
       });
     }
   };
+
+  logOut = async (req: Request, res: Response) => {
+    try {
+    } catch (error) {}
+  };
+
+  
 }
 
 export const authController = new CredentialController();

@@ -1,5 +1,6 @@
 import type { NextFunction, Request, Response } from "express";
 import { z, type ZodType } from "zod";
+import { checkTokenValid } from "../services/index.ts";
 
 type ValidationInput = {
   body?: unknown;
@@ -43,4 +44,26 @@ export function Validation<T extends ValidationOutput>(
       return next(error);
     }
   };
+}
+
+export async function tokenValidation(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) {
+  try {
+    const token = req.cookies.token;
+    const data = await checkTokenValid(token);
+    if (!data) {
+      return res.status(400).json({
+        message: "token not valid",
+      });
+    }
+    return next();
+  } catch (err) {
+    res.status(500).json({
+      message: "something has error",
+      error: err,
+    });
+  }
 }

@@ -16,7 +16,7 @@ export function getToken(id: number) {
 }
 
 export function setCookie(res: Response, token: string) {
-  res.cookie(token, "abc123", {
+  res.cookie("token", token, {
     httpOnly: true,
     secure: false, // true in HTTPS production
     maxAge: 24 * 60 * 60 * 1000, // 1 day
@@ -27,7 +27,22 @@ export async function isMatchPassword(
   password: string,
   passwordHash: string,
 ): Promise<boolean> {
-  const isMatch = await bcrypt.compare(password, passwordHash);
+  try {
+    const isMatch = await bcrypt.compare(password, passwordHash);
 
-  return isMatch;
+    return isMatch;
+  } catch (error) {
+    return false;
+  }
+}
+
+export async function checkTokenValid(token: string) {
+  try {
+    console.log("run chackToken");
+    const privateKey = process.env.privateJWTKey || "";
+    const decoded = await jwt.verify(token, privateKey);
+    return decoded;
+  } catch (error) {
+    throw new Error();
+  }
 }
