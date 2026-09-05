@@ -35,12 +35,14 @@ export async function isMatchPassword(
     return false;
   }
 }
-
+interface JwtUserPayload extends jwt.JwtPayload {
+  id: number;
+}
 export async function checkTokenValid(token: string) {
   try {
     console.log("run chackToken");
     const privateKey = process.env.privateJWTKey || "";
-    const decoded = await jwt.verify(token, privateKey);
+    const decoded = await jwt.verify(token, privateKey) as JwtUserPayload;
     return decoded;
   } catch (error) {
     throw new Error();
