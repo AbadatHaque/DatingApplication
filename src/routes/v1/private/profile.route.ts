@@ -4,6 +4,6 @@ import { Profile } from "../../../controllers/profile.contriller.ts";
 export const profileRoute: routeType = Router();
 const ProfileContriller = new Profile();
 
-profileRoute.get("/", ProfileContriller.getUser);
+profileRoute.get("/", ProfileContriller.get);
 // pro fileRoute.post("/");
 // profileRoute.delete("/");

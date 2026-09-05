@@ -1,6 +1,7 @@
 import type { NextFunction, Request, Response } from "express";
 import { z, type ZodType } from "zod";
 import { checkTokenValid } from "../services/index.ts";
+import jwt from "jsonwebtoken";
 
 type ValidationInput = {
   body?: unknown;
@@ -54,8 +55,7 @@ export async function tokenValidation(
   try {
     const token = req.cookies.token;
     const decoded = await checkTokenValid(token);
-    console.log(decoded, "decoded");
-    if (!decoded) {
+    if (typeof decoded === "string" || !decoded) {
       return res.status(400).json({
         message: "token not valid",
       });

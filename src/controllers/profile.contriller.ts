@@ -9,18 +9,20 @@ export class Profile {
       .status(500)
       .json({ success: false, message: "Failed to fetch users" });
   };
-  getUser = async (req: Request, res: Response) => {
+  get = async (req: Request, res: Response) => {
     try {
-    //   const token = req.cookies.token;
-    //   const privateKey = process.env.privateJWTKey || "";
-    //   var decoded = jwt.verify(token, privateKey);
-    //   console.log(decoded, "token");
-      res.status(204).json({
-        message: "working on json",
+        const id = Number(req.userId);
+        console.log(id,req.userId, "id")
+      const user = await prismaAdapter.user.findFirst({
+        where: { id },
       });
-      // const user = prismaAdapter.user.findUnique({
-      //     when
-      // })
+      if (!user) {
+        return res.status(404).json({ message: "User not found" });
+      }
+      return res.status(200).json({
+        message: "User find successsfully",
+        user
+      });
     } catch (error) {
       console.error("getUsers error:", error);
       return this.onError(req, res);
