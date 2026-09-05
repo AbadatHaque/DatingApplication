@@ -12,6 +12,29 @@ datasource db {
   provider = "mysql"
 }
 
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+}
+enum AreaType {
+  RURAL
+  URBAN
+}
+enum OccupationType {
+  SALARIED
+  SELF_EMPLOYED
+  BUSINESS
+  STUDENT
+  UNEMPLOYED
+  RETIRED
+}
+enum MarriageTimeline {
+  WITHIN_1_YEAR
+  ONE_TO_TWO_YEARS
+  TWO_TO_FIVE_YEARS
+  NOT_SURE
+}
 model User {
   id              Int       @id @default(autoincrement())
   email           String    @unique
@@ -20,6 +43,22 @@ model User {
   dob             DateTime
   requestsRecived Request[] @relation("requestReceiver")
   requestsSend    Request[] @relation("requestSender")
+
+  gender Gender
+  lookingFor String
+  about String
+  areaType AreaType
+  occupation     String?
+  occupationType OccupationType?
+  higherEducation String
+  mobileNumber String
+  marriageTimeline MarriageTimeline?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  state String?
+  city String?
+  address String?
+
 }
 
 model Request {

@@ -16,9 +16,11 @@ export const getUserByEmail = async (email: string) => {
     const user = await prismaAdapter.user.findUnique({
       where: { email },
     });
-    console.log(user, email, "user query");
     return user;
   } catch (error) {
-    throw error;
+    if (error instanceof Error) {
+      throw error;
+    }
+    throw new Error(String(error));
   }
 };

@@ -23,11 +23,22 @@ export function setCookie(res: Response, token: string) {
   });
 }
 
+export function distroyCookie(res: Response) {
+  res.cookie("token", "", {
+    httpOnly: true,
+    secure: false,
+    expires: new Date(0),
+  });
+}
+
 export async function isMatchPassword(
   password: string,
-  passwordHash: string,
+  passwordHash?: string,
 ): Promise<boolean> {
   try {
+    if (!passwordHash) {
+      throw new Error("Not a valid user");
+    }
     const isMatch = await bcrypt.compare(password, passwordHash);
 
     return isMatch;
@@ -40,12 +51,10 @@ interface JwtUserPayload extends jwt.JwtPayload {
 }
 export async function checkTokenValid(token: string) {
   try {
-    console.log("run chackToken");
     const privateKey = process.env.privateJWTKey || "";
     const decoded = (await jwt.verify(token, privateKey)) as JwtUserPayload;
     return decoded;
   } catch (error) {
-    console.error("JWT verification failed:", error);
     if (error instanceof Error) {
       throw error;
     }
