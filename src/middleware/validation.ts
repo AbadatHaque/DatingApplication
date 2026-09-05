@@ -53,13 +53,14 @@ export async function tokenValidation(
 ) {
   try {
     const token = req.cookies.token;
-    const decoded =  checkTokenValid(token);
+    const decoded = await checkTokenValid(token);
+    console.log(decoded, "decoded");
     if (!decoded) {
       return res.status(400).json({
         message: "token not valid",
       });
     }
-    req.userId = decoded.id;
+    // req.userId = decoded.id;
     return next();
   } catch (err) {
     res.status(500).json({

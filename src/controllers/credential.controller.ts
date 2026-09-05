@@ -72,8 +72,6 @@ class CredentialController {
     try {
     } catch (error) {}
   };
-
-  
 }
 
 export const authController = new CredentialController();
