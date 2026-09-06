@@ -38,12 +38,11 @@ class CredentialController {
 
   register = async (req: Request, res: Response) => {
     try {
-      const { password, email, name, dob, ...rest } = req.body;
+      const { password, dob, ...rest } = req.body;
       const encodePassword = await bcrypt.hash(password, this.saltRounds);
       const user = await prismaAdapter.user.create({
         data: {
-          email,
-          name,
+         ...rest,
           password: encodePassword,
           dob: new Date(dob),
         },

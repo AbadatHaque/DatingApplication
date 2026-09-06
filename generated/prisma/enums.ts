@@ -9,7 +9,40 @@
 * 🟢 You can import this file directly.
 */
 
+export const Gender = {
+  MALE: 'MALE',
+  FEMALE: 'FEMALE',
+  OTHER: 'OTHER'
+} as const
+
+export type Gender = (typeof Gender)[keyof typeof Gender]
 
 
-// This file is empty because there are no enums in the schema.
-export {}
+export const AreaType = {
+  RURAL: 'RURAL',
+  URBAN: 'URBAN'
+} as const
+
+export type AreaType = (typeof AreaType)[keyof typeof AreaType]
+
+
+export const OccupationType = {
+  SALARIED: 'SALARIED',
+  SELF_EMPLOYED: 'SELF_EMPLOYED',
+  BUSINESS: 'BUSINESS',
+  STUDENT: 'STUDENT',
+  UNEMPLOYED: 'UNEMPLOYED',
+  RETIRED: 'RETIRED'
+} as const
+
+export type OccupationType = (typeof OccupationType)[keyof typeof OccupationType]
+
+
+export const MarriageTimeline = {
+  WITHIN_1_YEAR: 'WITHIN_1_YEAR',
+  ONE_TO_TWO_YEARS: 'ONE_TO_TWO_YEARS',
+  TWO_TO_FIVE_YEARS: 'TWO_TO_FIVE_YEARS',
+  NOT_SURE: 'NOT_SURE'
+} as const
+
+export type MarriageTimeline = (typeof MarriageTimeline)[keyof typeof MarriageTimeline]

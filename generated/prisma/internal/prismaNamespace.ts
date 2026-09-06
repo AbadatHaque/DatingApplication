@@ -594,7 +594,21 @@ export const UserScalarFieldEnum = {
   email: 'email',
   name: 'name',
   password: 'password',
-  dob: 'dob'
+  dob: 'dob',
+  gender: 'gender',
+  lookingFor: 'lookingFor',
+  about: 'about',
+  areaType: 'areaType',
+  occupation: 'occupation',
+  occupationType: 'occupationType',
+  higherEducation: 'higherEducation',
+  mobileNumber: 'mobileNumber',
+  marriageTimeline: 'marriageTimeline',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  state: 'state',
+  city: 'city',
+  address: 'address'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -628,7 +642,15 @@ export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 export const UserOrderByRelevanceFieldEnum = {
   email: 'email',
   name: 'name',
-  password: 'password'
+  password: 'password',
+  lookingFor: 'lookingFor',
+  about: 'about',
+  occupation: 'occupation',
+  higherEducation: 'higherEducation',
+  mobileNumber: 'mobileNumber',
+  state: 'state',
+  city: 'city',
+  address: 'address'
 } as const
 
 export type UserOrderByRelevanceFieldEnum = (typeof UserOrderByRelevanceFieldEnum)[keyof typeof UserOrderByRelevanceFieldEnum]
@@ -658,6 +680,34 @@ export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 
  * Reference to a field of type 'DateTime'
  */
 export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+/**
+ * Reference to a field of type 'Gender'
+ */
+export type EnumGenderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Gender'>
+    
+
+
+/**
+ * Reference to a field of type 'AreaType'
+ */
+export type EnumAreaTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AreaType'>
+    
+
+
+/**
+ * Reference to a field of type 'OccupationType'
+ */
+export type EnumOccupationTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OccupationType'>
+    
+
+
+/**
+ * Reference to a field of type 'MarriageTimeline'
+ */
+export type EnumMarriageTimelineFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'MarriageTimeline'>
     
 
 

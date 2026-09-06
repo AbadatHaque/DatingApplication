@@ -40,6 +40,20 @@ export type UserMinAggregateOutputType = {
   name: string | null
   password: string | null
   dob: Date | null
+  gender: $Enums.Gender | null
+  lookingFor: string | null
+  about: string | null
+  areaType: $Enums.AreaType | null
+  occupation: string | null
+  occupationType: $Enums.OccupationType | null
+  higherEducation: string | null
+  mobileNumber: string | null
+  marriageTimeline: $Enums.MarriageTimeline | null
+  createdAt: Date | null
+  updatedAt: Date | null
+  state: string | null
+  city: string | null
+  address: string | null
 }
 
 export type UserMaxAggregateOutputType = {
@@ -48,6 +62,20 @@ export type UserMaxAggregateOutputType = {
   name: string | null
   password: string | null
   dob: Date | null
+  gender: $Enums.Gender | null
+  lookingFor: string | null
+  about: string | null
+  areaType: $Enums.AreaType | null
+  occupation: string | null
+  occupationType: $Enums.OccupationType | null
+  higherEducation: string | null
+  mobileNumber: string | null
+  marriageTimeline: $Enums.MarriageTimeline | null
+  createdAt: Date | null
+  updatedAt: Date | null
+  state: string | null
+  city: string | null
+  address: string | null
 }
 
 export type UserCountAggregateOutputType = {
@@ -56,6 +84,20 @@ export type UserCountAggregateOutputType = {
   name: number
   password: number
   dob: number
+  gender: number
+  lookingFor: number
+  about: number
+  areaType: number
+  occupation: number
+  occupationType: number
+  higherEducation: number
+  mobileNumber: number
+  marriageTimeline: number
+  createdAt: number
+  updatedAt: number
+  state: number
+  city: number
+  address: number
   _all: number
 }
 
@@ -74,6 +116,20 @@ export type UserMinAggregateInputType = {
   name?: true
   password?: true
   dob?: true
+  gender?: true
+  lookingFor?: true
+  about?: true
+  areaType?: true
+  occupation?: true
+  occupationType?: true
+  higherEducation?: true
+  mobileNumber?: true
+  marriageTimeline?: true
+  createdAt?: true
+  updatedAt?: true
+  state?: true
+  city?: true
+  address?: true
 }
 
 export type UserMaxAggregateInputType = {
@@ -82,6 +138,20 @@ export type UserMaxAggregateInputType = {
   name?: true
   password?: true
   dob?: true
+  gender?: true
+  lookingFor?: true
+  about?: true
+  areaType?: true
+  occupation?: true
+  occupationType?: true
+  higherEducation?: true
+  mobileNumber?: true
+  marriageTimeline?: true
+  createdAt?: true
+  updatedAt?: true
+  state?: true
+  city?: true
+  address?: true
 }
 
 export type UserCountAggregateInputType = {
@@ -90,6 +160,20 @@ export type UserCountAggregateInputType = {
   name?: true
   password?: true
   dob?: true
+  gender?: true
+  lookingFor?: true
+  about?: true
+  areaType?: true
+  occupation?: true
+  occupationType?: true
+  higherEducation?: true
+  mobileNumber?: true
+  marriageTimeline?: true
+  createdAt?: true
+  updatedAt?: true
+  state?: true
+  city?: true
+  address?: true
   _all?: true
 }
 
@@ -185,6 +269,20 @@ export type UserGroupByOutputType = {
   name: string | null
   password: string
   dob: Date
+  gender: $Enums.Gender
+  lookingFor: string
+  about: string
+  areaType: $Enums.AreaType
+  occupation: string | null
+  occupationType: $Enums.OccupationType | null
+  higherEducation: string
+  mobileNumber: string
+  marriageTimeline: $Enums.MarriageTimeline | null
+  createdAt: Date
+  updatedAt: Date
+  state: string | null
+  city: string | null
+  address: string | null
   _count: UserCountAggregateOutputType | null
   _avg: UserAvgAggregateOutputType | null
   _sum: UserSumAggregateOutputType | null
@@ -216,6 +314,20 @@ export type UserWhereInput = {
   name?: Prisma.StringNullableFilter<"User"> | string | null
   password?: Prisma.StringFilter<"User"> | string
   dob?: Prisma.DateTimeFilter<"User"> | Date | string
+  gender?: Prisma.EnumGenderFilter<"User"> | $Enums.Gender
+  lookingFor?: Prisma.StringFilter<"User"> | string
+  about?: Prisma.StringFilter<"User"> | string
+  areaType?: Prisma.EnumAreaTypeFilter<"User"> | $Enums.AreaType
+  occupation?: Prisma.StringNullableFilter<"User"> | string | null
+  occupationType?: Prisma.EnumOccupationTypeNullableFilter<"User"> | $Enums.OccupationType | null
+  higherEducation?: Prisma.StringFilter<"User"> | string
+  mobileNumber?: Prisma.StringFilter<"User"> | string
+  marriageTimeline?: Prisma.EnumMarriageTimelineNullableFilter<"User"> | $Enums.MarriageTimeline | null
+  createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
+  state?: Prisma.StringNullableFilter<"User"> | string | null
+  city?: Prisma.StringNullableFilter<"User"> | string | null
+  address?: Prisma.StringNullableFilter<"User"> | string | null
   requestsRecived?: Prisma.RequestListRelationFilter
   requestsSend?: Prisma.RequestListRelationFilter
 }
@@ -226,6 +338,20 @@ export type UserOrderByWithRelationInput = {
   name?: Prisma.SortOrderInput | Prisma.SortOrder
   password?: Prisma.SortOrder
   dob?: Prisma.SortOrder
+  gender?: Prisma.SortOrder
+  lookingFor?: Prisma.SortOrder
+  about?: Prisma.SortOrder
+  areaType?: Prisma.SortOrder
+  occupation?: Prisma.SortOrderInput | Prisma.SortOrder
+  occupationType?: Prisma.SortOrderInput | Prisma.SortOrder
+  higherEducation?: Prisma.SortOrder
+  mobileNumber?: Prisma.SortOrder
+  marriageTimeline?: Prisma.SortOrderInput | Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
+  state?: Prisma.SortOrderInput | Prisma.SortOrder
+  city?: Prisma.SortOrderInput | Prisma.SortOrder
+  address?: Prisma.SortOrderInput | Prisma.SortOrder
   requestsRecived?: Prisma.RequestOrderByRelationAggregateInput
   requestsSend?: Prisma.RequestOrderByRelationAggregateInput
   _relevance?: Prisma.UserOrderByRelevanceInput
@@ -240,6 +366,20 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
   name?: Prisma.StringNullableFilter<"User"> | string | null
   dob?: Prisma.DateTimeFilter<"User"> | Date | string
+  gender?: Prisma.EnumGenderFilter<"User"> | $Enums.Gender
+  lookingFor?: Prisma.StringFilter<"User"> | string
+  about?: Prisma.StringFilter<"User"> | string
+  areaType?: Prisma.EnumAreaTypeFilter<"User"> | $Enums.AreaType
+  occupation?: Prisma.StringNullableFilter<"User"> | string | null
+  occupationType?: Prisma.EnumOccupationTypeNullableFilter<"User"> | $Enums.OccupationType | null
+  higherEducation?: Prisma.StringFilter<"User"> | string
+  mobileNumber?: Prisma.StringFilter<"User"> | string
+  marriageTimeline?: Prisma.EnumMarriageTimelineNullableFilter<"User"> | $Enums.MarriageTimeline | null
+  createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
+  state?: Prisma.StringNullableFilter<"User"> | string | null
+  city?: Prisma.StringNullableFilter<"User"> | string | null
+  address?: Prisma.StringNullableFilter<"User"> | string | null
   requestsRecived?: Prisma.RequestListRelationFilter
   requestsSend?: Prisma.RequestListRelationFilter
 }, "id" | "email" | "password">
@@ -250,6 +390,20 @@ export type UserOrderByWithAggregationInput = {
   name?: Prisma.SortOrderInput | Prisma.SortOrder
   password?: Prisma.SortOrder
   dob?: Prisma.SortOrder
+  gender?: Prisma.SortOrder
+  lookingFor?: Prisma.SortOrder
+  about?: Prisma.SortOrder
+  areaType?: Prisma.SortOrder
+  occupation?: Prisma.SortOrderInput | Prisma.SortOrder
+  occupationType?: Prisma.SortOrderInput | Prisma.SortOrder
+  higherEducation?: Prisma.SortOrder
+  mobileNumber?: Prisma.SortOrder
+  marriageTimeline?: Prisma.SortOrderInput | Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
+  state?: Prisma.SortOrderInput | Prisma.SortOrder
+  city?: Prisma.SortOrderInput | Prisma.SortOrder
+  address?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.UserCountOrderByAggregateInput
   _avg?: Prisma.UserAvgOrderByAggregateInput
   _max?: Prisma.UserMaxOrderByAggregateInput
@@ -266,6 +420,20 @@ export type UserScalarWhereWithAggregatesInput = {
   name?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   password?: Prisma.StringWithAggregatesFilter<"User"> | string
   dob?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
+  gender?: Prisma.EnumGenderWithAggregatesFilter<"User"> | $Enums.Gender
+  lookingFor?: Prisma.StringWithAggregatesFilter<"User"> | string
+  about?: Prisma.StringWithAggregatesFilter<"User"> | string
+  areaType?: Prisma.EnumAreaTypeWithAggregatesFilter<"User"> | $Enums.AreaType
+  occupation?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  occupationType?: Prisma.EnumOccupationTypeNullableWithAggregatesFilter<"User"> | $Enums.OccupationType | null
+  higherEducation?: Prisma.StringWithAggregatesFilter<"User"> | string
+  mobileNumber?: Prisma.StringWithAggregatesFilter<"User"> | string
+  marriageTimeline?: Prisma.EnumMarriageTimelineNullableWithAggregatesFilter<"User"> | $Enums.MarriageTimeline | null
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
+  state?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  city?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  address?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
 }
 
 export type UserCreateInput = {
@@ -273,6 +441,20 @@ export type UserCreateInput = {
   name?: string | null
   password: string
   dob: Date | string
+  gender: $Enums.Gender
+  lookingFor: string
+  about: string
+  areaType: $Enums.AreaType
+  occupation?: string | null
+  occupationType?: $Enums.OccupationType | null
+  higherEducation: string
+  mobileNumber: string
+  marriageTimeline?: $Enums.MarriageTimeline | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  state?: string | null
+  city?: string | null
+  address?: string | null
   requestsRecived?: Prisma.RequestCreateNestedManyWithoutToInput
   requestsSend?: Prisma.RequestCreateNestedManyWithoutFromInput
 }
@@ -283,6 +465,20 @@ export type UserUncheckedCreateInput = {
   name?: string | null
   password: string
   dob: Date | string
+  gender: $Enums.Gender
+  lookingFor: string
+  about: string
+  areaType: $Enums.AreaType
+  occupation?: string | null
+  occupationType?: $Enums.OccupationType | null
+  higherEducation: string
+  mobileNumber: string
+  marriageTimeline?: $Enums.MarriageTimeline | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  state?: string | null
+  city?: string | null
+  address?: string | null
   requestsRecived?: Prisma.RequestUncheckedCreateNestedManyWithoutToInput
   requestsSend?: Prisma.RequestUncheckedCreateNestedManyWithoutFromInput
 }
@@ -292,6 +488,20 @@ export type UserUpdateInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.StringFieldUpdateOperationsInput | string
   dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  gender?: Prisma.EnumGenderFieldUpdateOperationsInput | $Enums.Gender
+  lookingFor?: Prisma.StringFieldUpdateOperationsInput | string
+  about?: Prisma.StringFieldUpdateOperationsInput | string
+  areaType?: Prisma.EnumAreaTypeFieldUpdateOperationsInput | $Enums.AreaType
+  occupation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  occupationType?: Prisma.NullableEnumOccupationTypeFieldUpdateOperationsInput | $Enums.OccupationType | null
+  higherEducation?: Prisma.StringFieldUpdateOperationsInput | string
+  mobileNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  marriageTimeline?: Prisma.NullableEnumMarriageTimelineFieldUpdateOperationsInput | $Enums.MarriageTimeline | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   requestsRecived?: Prisma.RequestUpdateManyWithoutToNestedInput
   requestsSend?: Prisma.RequestUpdateManyWithoutFromNestedInput
 }
@@ -302,6 +512,20 @@ export type UserUncheckedUpdateInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.StringFieldUpdateOperationsInput | string
   dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  gender?: Prisma.EnumGenderFieldUpdateOperationsInput | $Enums.Gender
+  lookingFor?: Prisma.StringFieldUpdateOperationsInput | string
+  about?: Prisma.StringFieldUpdateOperationsInput | string
+  areaType?: Prisma.EnumAreaTypeFieldUpdateOperationsInput | $Enums.AreaType
+  occupation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  occupationType?: Prisma.NullableEnumOccupationTypeFieldUpdateOperationsInput | $Enums.OccupationType | null
+  higherEducation?: Prisma.StringFieldUpdateOperationsInput | string
+  mobileNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  marriageTimeline?: Prisma.NullableEnumMarriageTimelineFieldUpdateOperationsInput | $Enums.MarriageTimeline | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   requestsRecived?: Prisma.RequestUncheckedUpdateManyWithoutToNestedInput
   requestsSend?: Prisma.RequestUncheckedUpdateManyWithoutFromNestedInput
 }
@@ -312,6 +536,20 @@ export type UserCreateManyInput = {
   name?: string | null
   password: string
   dob: Date | string
+  gender: $Enums.Gender
+  lookingFor: string
+  about: string
+  areaType: $Enums.AreaType
+  occupation?: string | null
+  occupationType?: $Enums.OccupationType | null
+  higherEducation: string
+  mobileNumber: string
+  marriageTimeline?: $Enums.MarriageTimeline | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  state?: string | null
+  city?: string | null
+  address?: string | null
 }
 
 export type UserUpdateManyMutationInput = {
@@ -319,6 +557,20 @@ export type UserUpdateManyMutationInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.StringFieldUpdateOperationsInput | string
   dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  gender?: Prisma.EnumGenderFieldUpdateOperationsInput | $Enums.Gender
+  lookingFor?: Prisma.StringFieldUpdateOperationsInput | string
+  about?: Prisma.StringFieldUpdateOperationsInput | string
+  areaType?: Prisma.EnumAreaTypeFieldUpdateOperationsInput | $Enums.AreaType
+  occupation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  occupationType?: Prisma.NullableEnumOccupationTypeFieldUpdateOperationsInput | $Enums.OccupationType | null
+  higherEducation?: Prisma.StringFieldUpdateOperationsInput | string
+  mobileNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  marriageTimeline?: Prisma.NullableEnumMarriageTimelineFieldUpdateOperationsInput | $Enums.MarriageTimeline | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type UserUncheckedUpdateManyInput = {
@@ -327,6 +579,20 @@ export type UserUncheckedUpdateManyInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.StringFieldUpdateOperationsInput | string
   dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  gender?: Prisma.EnumGenderFieldUpdateOperationsInput | $Enums.Gender
+  lookingFor?: Prisma.StringFieldUpdateOperationsInput | string
+  about?: Prisma.StringFieldUpdateOperationsInput | string
+  areaType?: Prisma.EnumAreaTypeFieldUpdateOperationsInput | $Enums.AreaType
+  occupation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  occupationType?: Prisma.NullableEnumOccupationTypeFieldUpdateOperationsInput | $Enums.OccupationType | null
+  higherEducation?: Prisma.StringFieldUpdateOperationsInput | string
+  mobileNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  marriageTimeline?: Prisma.NullableEnumMarriageTimelineFieldUpdateOperationsInput | $Enums.MarriageTimeline | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type UserOrderByRelevanceInput = {
@@ -341,6 +607,20 @@ export type UserCountOrderByAggregateInput = {
   name?: Prisma.SortOrder
   password?: Prisma.SortOrder
   dob?: Prisma.SortOrder
+  gender?: Prisma.SortOrder
+  lookingFor?: Prisma.SortOrder
+  about?: Prisma.SortOrder
+  areaType?: Prisma.SortOrder
+  occupation?: Prisma.SortOrder
+  occupationType?: Prisma.SortOrder
+  higherEducation?: Prisma.SortOrder
+  mobileNumber?: Prisma.SortOrder
+  marriageTimeline?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
+  state?: Prisma.SortOrder
+  city?: Prisma.SortOrder
+  address?: Prisma.SortOrder
 }
 
 export type UserAvgOrderByAggregateInput = {
@@ -353,6 +633,20 @@ export type UserMaxOrderByAggregateInput = {
   name?: Prisma.SortOrder
   password?: Prisma.SortOrder
   dob?: Prisma.SortOrder
+  gender?: Prisma.SortOrder
+  lookingFor?: Prisma.SortOrder
+  about?: Prisma.SortOrder
+  areaType?: Prisma.SortOrder
+  occupation?: Prisma.SortOrder
+  occupationType?: Prisma.SortOrder
+  higherEducation?: Prisma.SortOrder
+  mobileNumber?: Prisma.SortOrder
+  marriageTimeline?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
+  state?: Prisma.SortOrder
+  city?: Prisma.SortOrder
+  address?: Prisma.SortOrder
 }
 
 export type UserMinOrderByAggregateInput = {
@@ -361,6 +655,20 @@ export type UserMinOrderByAggregateInput = {
   name?: Prisma.SortOrder
   password?: Prisma.SortOrder
   dob?: Prisma.SortOrder
+  gender?: Prisma.SortOrder
+  lookingFor?: Prisma.SortOrder
+  about?: Prisma.SortOrder
+  areaType?: Prisma.SortOrder
+  occupation?: Prisma.SortOrder
+  occupationType?: Prisma.SortOrder
+  higherEducation?: Prisma.SortOrder
+  mobileNumber?: Prisma.SortOrder
+  marriageTimeline?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
+  state?: Prisma.SortOrder
+  city?: Prisma.SortOrder
+  address?: Prisma.SortOrder
 }
 
 export type UserSumOrderByAggregateInput = {
@@ -382,6 +690,22 @@ export type NullableStringFieldUpdateOperationsInput = {
 
 export type DateTimeFieldUpdateOperationsInput = {
   set?: Date | string
+}
+
+export type EnumGenderFieldUpdateOperationsInput = {
+  set?: $Enums.Gender
+}
+
+export type EnumAreaTypeFieldUpdateOperationsInput = {
+  set?: $Enums.AreaType
+}
+
+export type NullableEnumOccupationTypeFieldUpdateOperationsInput = {
+  set?: $Enums.OccupationType | null
+}
+
+export type NullableEnumMarriageTimelineFieldUpdateOperationsInput = {
+  set?: $Enums.MarriageTimeline | null
 }
 
 export type IntFieldUpdateOperationsInput = {
@@ -425,6 +749,20 @@ export type UserCreateWithoutRequestsSendInput = {
   name?: string | null
   password: string
   dob: Date | string
+  gender: $Enums.Gender
+  lookingFor: string
+  about: string
+  areaType: $Enums.AreaType
+  occupation?: string | null
+  occupationType?: $Enums.OccupationType | null
+  higherEducation: string
+  mobileNumber: string
+  marriageTimeline?: $Enums.MarriageTimeline | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  state?: string | null
+  city?: string | null
+  address?: string | null
   requestsRecived?: Prisma.RequestCreateNestedManyWithoutToInput
 }
 
@@ -434,6 +772,20 @@ export type UserUncheckedCreateWithoutRequestsSendInput = {
   name?: string | null
   password: string
   dob: Date | string
+  gender: $Enums.Gender
+  lookingFor: string
+  about: string
+  areaType: $Enums.AreaType
+  occupation?: string | null
+  occupationType?: $Enums.OccupationType | null
+  higherEducation: string
+  mobileNumber: string
+  marriageTimeline?: $Enums.MarriageTimeline | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  state?: string | null
+  city?: string | null
+  address?: string | null
   requestsRecived?: Prisma.RequestUncheckedCreateNestedManyWithoutToInput
 }
 
@@ -447,6 +799,20 @@ export type UserCreateWithoutRequestsRecivedInput = {
   name?: string | null
   password: string
   dob: Date | string
+  gender: $Enums.Gender
+  lookingFor: string
+  about: string
+  areaType: $Enums.AreaType
+  occupation?: string | null
+  occupationType?: $Enums.OccupationType | null
+  higherEducation: string
+  mobileNumber: string
+  marriageTimeline?: $Enums.MarriageTimeline | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  state?: string | null
+  city?: string | null
+  address?: string | null
   requestsSend?: Prisma.RequestCreateNestedManyWithoutFromInput
 }
 
@@ -456,6 +822,20 @@ export type UserUncheckedCreateWithoutRequestsRecivedInput = {
   name?: string | null
   password: string
   dob: Date | string
+  gender: $Enums.Gender
+  lookingFor: string
+  about: string
+  areaType: $Enums.AreaType
+  occupation?: string | null
+  occupationType?: $Enums.OccupationType | null
+  higherEducation: string
+  mobileNumber: string
+  marriageTimeline?: $Enums.MarriageTimeline | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  state?: string | null
+  city?: string | null
+  address?: string | null
   requestsSend?: Prisma.RequestUncheckedCreateNestedManyWithoutFromInput
 }
 
@@ -480,6 +860,20 @@ export type UserUpdateWithoutRequestsSendInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.StringFieldUpdateOperationsInput | string
   dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  gender?: Prisma.EnumGenderFieldUpdateOperationsInput | $Enums.Gender
+  lookingFor?: Prisma.StringFieldUpdateOperationsInput | string
+  about?: Prisma.StringFieldUpdateOperationsInput | string
+  areaType?: Prisma.EnumAreaTypeFieldUpdateOperationsInput | $Enums.AreaType
+  occupation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  occupationType?: Prisma.NullableEnumOccupationTypeFieldUpdateOperationsInput | $Enums.OccupationType | null
+  higherEducation?: Prisma.StringFieldUpdateOperationsInput | string
+  mobileNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  marriageTimeline?: Prisma.NullableEnumMarriageTimelineFieldUpdateOperationsInput | $Enums.MarriageTimeline | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   requestsRecived?: Prisma.RequestUpdateManyWithoutToNestedInput
 }
 
@@ -489,6 +883,20 @@ export type UserUncheckedUpdateWithoutRequestsSendInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.StringFieldUpdateOperationsInput | string
   dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  gender?: Prisma.EnumGenderFieldUpdateOperationsInput | $Enums.Gender
+  lookingFor?: Prisma.StringFieldUpdateOperationsInput | string
+  about?: Prisma.StringFieldUpdateOperationsInput | string
+  areaType?: Prisma.EnumAreaTypeFieldUpdateOperationsInput | $Enums.AreaType
+  occupation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  occupationType?: Prisma.NullableEnumOccupationTypeFieldUpdateOperationsInput | $Enums.OccupationType | null
+  higherEducation?: Prisma.StringFieldUpdateOperationsInput | string
+  mobileNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  marriageTimeline?: Prisma.NullableEnumMarriageTimelineFieldUpdateOperationsInput | $Enums.MarriageTimeline | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   requestsRecived?: Prisma.RequestUncheckedUpdateManyWithoutToNestedInput
 }
 
@@ -508,6 +916,20 @@ export type UserUpdateWithoutRequestsRecivedInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.StringFieldUpdateOperationsInput | string
   dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  gender?: Prisma.EnumGenderFieldUpdateOperationsInput | $Enums.Gender
+  lookingFor?: Prisma.StringFieldUpdateOperationsInput | string
+  about?: Prisma.StringFieldUpdateOperationsInput | string
+  areaType?: Prisma.EnumAreaTypeFieldUpdateOperationsInput | $Enums.AreaType
+  occupation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  occupationType?: Prisma.NullableEnumOccupationTypeFieldUpdateOperationsInput | $Enums.OccupationType | null
+  higherEducation?: Prisma.StringFieldUpdateOperationsInput | string
+  mobileNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  marriageTimeline?: Prisma.NullableEnumMarriageTimelineFieldUpdateOperationsInput | $Enums.MarriageTimeline | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   requestsSend?: Prisma.RequestUpdateManyWithoutFromNestedInput
 }
 
@@ -517,6 +939,20 @@ export type UserUncheckedUpdateWithoutRequestsRecivedInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.StringFieldUpdateOperationsInput | string
   dob?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  gender?: Prisma.EnumGenderFieldUpdateOperationsInput | $Enums.Gender
+  lookingFor?: Prisma.StringFieldUpdateOperationsInput | string
+  about?: Prisma.StringFieldUpdateOperationsInput | string
+  areaType?: Prisma.EnumAreaTypeFieldUpdateOperationsInput | $Enums.AreaType
+  occupation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  occupationType?: Prisma.NullableEnumOccupationTypeFieldUpdateOperationsInput | $Enums.OccupationType | null
+  higherEducation?: Prisma.StringFieldUpdateOperationsInput | string
+  mobileNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  marriageTimeline?: Prisma.NullableEnumMarriageTimelineFieldUpdateOperationsInput | $Enums.MarriageTimeline | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   requestsSend?: Prisma.RequestUncheckedUpdateManyWithoutFromNestedInput
 }
 
@@ -566,6 +1002,20 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   name?: boolean
   password?: boolean
   dob?: boolean
+  gender?: boolean
+  lookingFor?: boolean
+  about?: boolean
+  areaType?: boolean
+  occupation?: boolean
+  occupationType?: boolean
+  higherEducation?: boolean
+  mobileNumber?: boolean
+  marriageTimeline?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
+  state?: boolean
+  city?: boolean
+  address?: boolean
   requestsRecived?: boolean | Prisma.User$requestsRecivedArgs<ExtArgs>
   requestsSend?: boolean | Prisma.User$requestsSendArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -579,9 +1029,23 @@ export type UserSelectScalar = {
   name?: boolean
   password?: boolean
   dob?: boolean
+  gender?: boolean
+  lookingFor?: boolean
+  about?: boolean
+  areaType?: boolean
+  occupation?: boolean
+  occupationType?: boolean
+  higherEducation?: boolean
+  mobileNumber?: boolean
+  marriageTimeline?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
+  state?: boolean
+  city?: boolean
+  address?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "name" | "password" | "dob", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "name" | "password" | "dob" | "gender" | "lookingFor" | "about" | "areaType" | "occupation" | "occupationType" | "higherEducation" | "mobileNumber" | "marriageTimeline" | "createdAt" | "updatedAt" | "state" | "city" | "address", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   requestsRecived?: boolean | Prisma.User$requestsRecivedArgs<ExtArgs>
   requestsSend?: boolean | Prisma.User$requestsSendArgs<ExtArgs>
@@ -600,6 +1064,20 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     name: string | null
     password: string
     dob: Date
+    gender: $Enums.Gender
+    lookingFor: string
+    about: string
+    areaType: $Enums.AreaType
+    occupation: string | null
+    occupationType: $Enums.OccupationType | null
+    higherEducation: string
+    mobileNumber: string
+    marriageTimeline: $Enums.MarriageTimeline | null
+    createdAt: Date
+    updatedAt: Date
+    state: string | null
+    city: string | null
+    address: string | null
   }, ExtArgs["result"]["user"]>
   composites: {}
 }
@@ -976,6 +1454,20 @@ export interface UserFieldRefs {
   readonly name: Prisma.FieldRef<"User", 'String'>
   readonly password: Prisma.FieldRef<"User", 'String'>
   readonly dob: Prisma.FieldRef<"User", 'DateTime'>
+  readonly gender: Prisma.FieldRef<"User", 'Gender'>
+  readonly lookingFor: Prisma.FieldRef<"User", 'String'>
+  readonly about: Prisma.FieldRef<"User", 'String'>
+  readonly areaType: Prisma.FieldRef<"User", 'AreaType'>
+  readonly occupation: Prisma.FieldRef<"User", 'String'>
+  readonly occupationType: Prisma.FieldRef<"User", 'OccupationType'>
+  readonly higherEducation: Prisma.FieldRef<"User", 'String'>
+  readonly mobileNumber: Prisma.FieldRef<"User", 'String'>
+  readonly marriageTimeline: Prisma.FieldRef<"User", 'MarriageTimeline'>
+  readonly createdAt: Prisma.FieldRef<"User", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"User", 'DateTime'>
+  readonly state: Prisma.FieldRef<"User", 'String'>
+  readonly city: Prisma.FieldRef<"User", 'String'>
+  readonly address: Prisma.FieldRef<"User", 'String'>
 }
     
 

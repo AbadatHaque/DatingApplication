@@ -66,6 +66,34 @@ export type DateTimeFilter<$PrismaModel = never> = {
   not?: Prisma.NestedDateTimeFilter<$PrismaModel> | Date | string
 }
 
+export type EnumGenderFilter<$PrismaModel = never> = {
+  equals?: $Enums.Gender | Prisma.EnumGenderFieldRefInput<$PrismaModel>
+  in?: $Enums.Gender[]
+  notIn?: $Enums.Gender[]
+  not?: Prisma.NestedEnumGenderFilter<$PrismaModel> | $Enums.Gender
+}
+
+export type EnumAreaTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.AreaType | Prisma.EnumAreaTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.AreaType[]
+  notIn?: $Enums.AreaType[]
+  not?: Prisma.NestedEnumAreaTypeFilter<$PrismaModel> | $Enums.AreaType
+}
+
+export type EnumOccupationTypeNullableFilter<$PrismaModel = never> = {
+  equals?: $Enums.OccupationType | Prisma.EnumOccupationTypeFieldRefInput<$PrismaModel> | null
+  in?: $Enums.OccupationType[] | null
+  notIn?: $Enums.OccupationType[] | null
+  not?: Prisma.NestedEnumOccupationTypeNullableFilter<$PrismaModel> | $Enums.OccupationType | null
+}
+
+export type EnumMarriageTimelineNullableFilter<$PrismaModel = never> = {
+  equals?: $Enums.MarriageTimeline | Prisma.EnumMarriageTimelineFieldRefInput<$PrismaModel> | null
+  in?: $Enums.MarriageTimeline[] | null
+  notIn?: $Enums.MarriageTimeline[] | null
+  not?: Prisma.NestedEnumMarriageTimelineNullableFilter<$PrismaModel> | $Enums.MarriageTimeline | null
+}
+
 export type SortOrderInput = {
   sort: Prisma.SortOrder
   nulls?: Prisma.NullsOrder
@@ -137,6 +165,46 @@ export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedDateTimeFilter<$PrismaModel>
 }
 
+export type EnumGenderWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Gender | Prisma.EnumGenderFieldRefInput<$PrismaModel>
+  in?: $Enums.Gender[]
+  notIn?: $Enums.Gender[]
+  not?: Prisma.NestedEnumGenderWithAggregatesFilter<$PrismaModel> | $Enums.Gender
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumGenderFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumGenderFilter<$PrismaModel>
+}
+
+export type EnumAreaTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.AreaType | Prisma.EnumAreaTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.AreaType[]
+  notIn?: $Enums.AreaType[]
+  not?: Prisma.NestedEnumAreaTypeWithAggregatesFilter<$PrismaModel> | $Enums.AreaType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumAreaTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumAreaTypeFilter<$PrismaModel>
+}
+
+export type EnumOccupationTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.OccupationType | Prisma.EnumOccupationTypeFieldRefInput<$PrismaModel> | null
+  in?: $Enums.OccupationType[] | null
+  notIn?: $Enums.OccupationType[] | null
+  not?: Prisma.NestedEnumOccupationTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.OccupationType | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumOccupationTypeNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumOccupationTypeNullableFilter<$PrismaModel>
+}
+
+export type EnumMarriageTimelineNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.MarriageTimeline | Prisma.EnumMarriageTimelineFieldRefInput<$PrismaModel> | null
+  in?: $Enums.MarriageTimeline[] | null
+  notIn?: $Enums.MarriageTimeline[] | null
+  not?: Prisma.NestedEnumMarriageTimelineNullableWithAggregatesFilter<$PrismaModel> | $Enums.MarriageTimeline | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumMarriageTimelineNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumMarriageTimelineNullableFilter<$PrismaModel>
+}
+
 export type NestedIntFilter<$PrismaModel = never> = {
   equals?: number | Prisma.IntFieldRefInput<$PrismaModel>
   in?: number[]
@@ -187,6 +255,34 @@ export type NestedDateTimeFilter<$PrismaModel = never> = {
   gt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
   gte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
   not?: Prisma.NestedDateTimeFilter<$PrismaModel> | Date | string
+}
+
+export type NestedEnumGenderFilter<$PrismaModel = never> = {
+  equals?: $Enums.Gender | Prisma.EnumGenderFieldRefInput<$PrismaModel>
+  in?: $Enums.Gender[]
+  notIn?: $Enums.Gender[]
+  not?: Prisma.NestedEnumGenderFilter<$PrismaModel> | $Enums.Gender
+}
+
+export type NestedEnumAreaTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.AreaType | Prisma.EnumAreaTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.AreaType[]
+  notIn?: $Enums.AreaType[]
+  not?: Prisma.NestedEnumAreaTypeFilter<$PrismaModel> | $Enums.AreaType
+}
+
+export type NestedEnumOccupationTypeNullableFilter<$PrismaModel = never> = {
+  equals?: $Enums.OccupationType | Prisma.EnumOccupationTypeFieldRefInput<$PrismaModel> | null
+  in?: $Enums.OccupationType[] | null
+  notIn?: $Enums.OccupationType[] | null
+  not?: Prisma.NestedEnumOccupationTypeNullableFilter<$PrismaModel> | $Enums.OccupationType | null
+}
+
+export type NestedEnumMarriageTimelineNullableFilter<$PrismaModel = never> = {
+  equals?: $Enums.MarriageTimeline | Prisma.EnumMarriageTimelineFieldRefInput<$PrismaModel> | null
+  in?: $Enums.MarriageTimeline[] | null
+  notIn?: $Enums.MarriageTimeline[] | null
+  not?: Prisma.NestedEnumMarriageTimelineNullableFilter<$PrismaModel> | $Enums.MarriageTimeline | null
 }
 
 export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -275,6 +371,46 @@ export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedDateTimeFilter<$PrismaModel>
   _max?: Prisma.NestedDateTimeFilter<$PrismaModel>
+}
+
+export type NestedEnumGenderWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Gender | Prisma.EnumGenderFieldRefInput<$PrismaModel>
+  in?: $Enums.Gender[]
+  notIn?: $Enums.Gender[]
+  not?: Prisma.NestedEnumGenderWithAggregatesFilter<$PrismaModel> | $Enums.Gender
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumGenderFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumGenderFilter<$PrismaModel>
+}
+
+export type NestedEnumAreaTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.AreaType | Prisma.EnumAreaTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.AreaType[]
+  notIn?: $Enums.AreaType[]
+  not?: Prisma.NestedEnumAreaTypeWithAggregatesFilter<$PrismaModel> | $Enums.AreaType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumAreaTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumAreaTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumOccupationTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.OccupationType | Prisma.EnumOccupationTypeFieldRefInput<$PrismaModel> | null
+  in?: $Enums.OccupationType[] | null
+  notIn?: $Enums.OccupationType[] | null
+  not?: Prisma.NestedEnumOccupationTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.OccupationType | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumOccupationTypeNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumOccupationTypeNullableFilter<$PrismaModel>
+}
+
+export type NestedEnumMarriageTimelineNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.MarriageTimeline | Prisma.EnumMarriageTimelineFieldRefInput<$PrismaModel> | null
+  in?: $Enums.MarriageTimeline[] | null
+  notIn?: $Enums.MarriageTimeline[] | null
+  not?: Prisma.NestedEnumMarriageTimelineNullableWithAggregatesFilter<$PrismaModel> | $Enums.MarriageTimeline | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumMarriageTimelineNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumMarriageTimelineNullableFilter<$PrismaModel>
 }
 
 
