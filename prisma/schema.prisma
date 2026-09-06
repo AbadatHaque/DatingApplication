@@ -41,12 +41,12 @@ model User {
   name            String?
   password        String    @unique
   dob             DateTime
-  requestsRecived Request[] @relation("requestReceiver")
-  requestsSend    Request[] @relation("requestSender")
+  requestsRecived requestConnection[] @relation("requestReceiver")
+  requestsSend    requestConnection[] @relation("requestSender")
 
   gender Gender
-  lookingFor String
-  about String
+  lookingFor String @db.VarChar(500)
+  about String @db.VarChar(500)
   areaType AreaType
   occupation     String?
   occupationType OccupationType?
@@ -61,10 +61,21 @@ model User {
 
 }
 
-model Request {
+enum Status {
+  REQUEST
+  DISLIKE
+  REJECT
+  ACCEPT
+}
+model requestConnection {
   id      Int  @id @default(autoincrement())
   from_id Int
   to_id   Int
   from    User @relation("requestSender", fields: [from_id], references: [id])
   to      User @relation("requestReceiver", fields: [to_id], references: [id])
+  status Status
 }
+
+// status - request , dislick
+// accept, reject 
+//Sourav@12345

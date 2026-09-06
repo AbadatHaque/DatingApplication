@@ -52,7 +52,7 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   User: 'User',
-  Request: 'Request'
+  requestConnection: 'requestConnection'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -96,13 +96,14 @@ export const UserScalarFieldEnum = {
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-export const RequestScalarFieldEnum = {
+export const RequestConnectionScalarFieldEnum = {
   id: 'id',
   from_id: 'from_id',
-  to_id: 'to_id'
+  to_id: 'to_id',
+  status: 'status'
 } as const
 
-export type RequestScalarFieldEnum = (typeof RequestScalarFieldEnum)[keyof typeof RequestScalarFieldEnum]
+export type RequestConnectionScalarFieldEnum = (typeof RequestConnectionScalarFieldEnum)[keyof typeof RequestConnectionScalarFieldEnum]
 
 
 export const SortOrder = {

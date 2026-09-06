@@ -205,6 +205,23 @@ export type EnumMarriageTimelineNullableWithAggregatesFilter<$PrismaModel = neve
   _max?: Prisma.NestedEnumMarriageTimelineNullableFilter<$PrismaModel>
 }
 
+export type EnumStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.Status | Prisma.EnumStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.Status[]
+  notIn?: $Enums.Status[]
+  not?: Prisma.NestedEnumStatusFilter<$PrismaModel> | $Enums.Status
+}
+
+export type EnumStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Status | Prisma.EnumStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.Status[]
+  notIn?: $Enums.Status[]
+  not?: Prisma.NestedEnumStatusWithAggregatesFilter<$PrismaModel> | $Enums.Status
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumStatusFilter<$PrismaModel>
+}
+
 export type NestedIntFilter<$PrismaModel = never> = {
   equals?: number | Prisma.IntFieldRefInput<$PrismaModel>
   in?: number[]
@@ -411,6 +428,23 @@ export type NestedEnumMarriageTimelineNullableWithAggregatesFilter<$PrismaModel 
   _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
   _min?: Prisma.NestedEnumMarriageTimelineNullableFilter<$PrismaModel>
   _max?: Prisma.NestedEnumMarriageTimelineNullableFilter<$PrismaModel>
+}
+
+export type NestedEnumStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.Status | Prisma.EnumStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.Status[]
+  notIn?: $Enums.Status[]
+  not?: Prisma.NestedEnumStatusFilter<$PrismaModel> | $Enums.Status
+}
+
+export type NestedEnumStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Status | Prisma.EnumStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.Status[]
+  notIn?: $Enums.Status[]
+  not?: Prisma.NestedEnumStatusWithAggregatesFilter<$PrismaModel> | $Enums.Status
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumStatusFilter<$PrismaModel>
 }
 
 

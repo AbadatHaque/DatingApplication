@@ -23,7 +23,7 @@ export * from './enums.ts';
  */
 export type User = Prisma.UserModel
 /**
- * Model Request
+ * Model requestConnection
  * 
  */
-export type Request = Prisma.RequestModel
+export type requestConnection = Prisma.requestConnectionModel

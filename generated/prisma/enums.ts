@@ -46,3 +46,13 @@ export const MarriageTimeline = {
 } as const
 
 export type MarriageTimeline = (typeof MarriageTimeline)[keyof typeof MarriageTimeline]
+
+
+export const Status = {
+  REQUEST: 'REQUEST',
+  DISLIKE: 'DISLIKE',
+  REJECT: 'REJECT',
+  ACCEPT: 'ACCEPT'
+} as const
+
+export type Status = (typeof Status)[keyof typeof Status]

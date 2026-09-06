@@ -10,8 +10,16 @@ import { prismaAdapter } from "../lib/prismaAdapter.ts";
 import bcrypt from "bcrypt";
 
 class CredentialController {
+  constructor(){
+    this.logOut = this.logOut.bind(this)
+    this.login = this.login.bind(this)
+    this.register = this.register.bind(this)
+    this.forgetPassword = this.forgetPassword.bind(this)
+    this.changePassword = this.changePassword.bind(this)
+
+  }
   private saltRounds = 10;
-  login = async (req: Request, res: Response) => {
+  async login (req: Request, res: Response) {
     try {
       console.log(req.body);
       const { email, password } = req.body;
@@ -36,11 +44,11 @@ class CredentialController {
     }
   };
 
-  register = async (req: Request, res: Response) => {
+  async register (req: Request, res: Response) {
     try {
       const { password, dob, ...rest } = req.body;
       const encodePassword = await bcrypt.hash(password, this.saltRounds);
-      const user = await prismaAdapter.user.create({
+       await prismaAdapter.user.create({
         data: {
          ...rest,
           password: encodePassword,
@@ -58,7 +66,7 @@ class CredentialController {
     }
   };
 
-  logOut = async (req: Request, res: Response) => {
+  async logOut (req: Request, res: Response) {
     try {
       distroyCookie(res);
       res.status(200).json({
@@ -72,7 +80,7 @@ class CredentialController {
     }
   };
 
-  changePassword = async (req: Request, res: Response) => {
+  async changePassword (req: Request, res: Response) {
     try {
       const { email, password, newPassword } = req.body;
       const user = await getUserByEmail(email);
@@ -101,7 +109,7 @@ class CredentialController {
     }
   };
 
-  forgetPassword = async (req: Request, res: Response) => {
+  async forgetPassword (req: Request, res: Response) {
     try {
       // we will implemant in later
       const { email } = req.body;

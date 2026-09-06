@@ -398,7 +398,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 export const ModelName = {
   User: 'User',
-  Request: 'Request'
+  requestConnection: 'requestConnection'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -414,7 +414,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "request"
+    modelProps: "user" | "requestConnection"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -484,69 +484,69 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    Request: {
-      payload: Prisma.$RequestPayload<ExtArgs>
-      fields: Prisma.RequestFieldRefs
+    requestConnection: {
+      payload: Prisma.$requestConnectionPayload<ExtArgs>
+      fields: Prisma.requestConnectionFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.RequestFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequestPayload> | null
+          args: Prisma.requestConnectionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$requestConnectionPayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.RequestFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequestPayload>
+          args: Prisma.requestConnectionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$requestConnectionPayload>
         }
         findFirst: {
-          args: Prisma.RequestFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequestPayload> | null
+          args: Prisma.requestConnectionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$requestConnectionPayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.RequestFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequestPayload>
+          args: Prisma.requestConnectionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$requestConnectionPayload>
         }
         findMany: {
-          args: Prisma.RequestFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequestPayload>[]
+          args: Prisma.requestConnectionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$requestConnectionPayload>[]
         }
         create: {
-          args: Prisma.RequestCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequestPayload>
+          args: Prisma.requestConnectionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$requestConnectionPayload>
         }
         createMany: {
-          args: Prisma.RequestCreateManyArgs<ExtArgs>
+          args: Prisma.requestConnectionCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         delete: {
-          args: Prisma.RequestDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequestPayload>
+          args: Prisma.requestConnectionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$requestConnectionPayload>
         }
         update: {
-          args: Prisma.RequestUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequestPayload>
+          args: Prisma.requestConnectionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$requestConnectionPayload>
         }
         deleteMany: {
-          args: Prisma.RequestDeleteManyArgs<ExtArgs>
+          args: Prisma.requestConnectionDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.RequestUpdateManyArgs<ExtArgs>
+          args: Prisma.requestConnectionUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         upsert: {
-          args: Prisma.RequestUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequestPayload>
+          args: Prisma.requestConnectionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$requestConnectionPayload>
         }
         aggregate: {
-          args: Prisma.RequestAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateRequest>
+          args: Prisma.RequestConnectionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateRequestConnection>
         }
         groupBy: {
-          args: Prisma.RequestGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.RequestGroupByOutputType>[]
+          args: Prisma.requestConnectionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.RequestConnectionGroupByOutputType>[]
         }
         count: {
-          args: Prisma.RequestCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.RequestCountAggregateOutputType> | number
+          args: Prisma.requestConnectionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.RequestConnectionCountAggregateOutputType> | number
         }
       }
     }
@@ -614,13 +614,14 @@ export const UserScalarFieldEnum = {
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-export const RequestScalarFieldEnum = {
+export const RequestConnectionScalarFieldEnum = {
   id: 'id',
   from_id: 'from_id',
-  to_id: 'to_id'
+  to_id: 'to_id',
+  status: 'status'
 } as const
 
-export type RequestScalarFieldEnum = (typeof RequestScalarFieldEnum)[keyof typeof RequestScalarFieldEnum]
+export type RequestConnectionScalarFieldEnum = (typeof RequestConnectionScalarFieldEnum)[keyof typeof RequestConnectionScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -708,6 +709,13 @@ export type EnumOccupationTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$P
  * Reference to a field of type 'MarriageTimeline'
  */
 export type EnumMarriageTimelineFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'MarriageTimeline'>
+    
+
+
+/**
+ * Reference to a field of type 'Status'
+ */
+export type EnumStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Status'>
     
 
 
@@ -869,7 +877,7 @@ export interface PrismaClientOptionsWithAdapter extends PrismaClientBaseOptions 
 export type PrismaClientOptions = PrismaClientOptionsWithAccelerateUrl | PrismaClientOptionsWithAdapter
 export type GlobalOmitConfig = {
   user?: Prisma.UserOmit
-  request?: Prisma.RequestOmit
+  requestConnection?: Prisma.requestConnectionOmit
 }
 
 /* Types for Logging */

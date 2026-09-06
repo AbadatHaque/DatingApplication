@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE `User` MODIFY `about` VARCHAR(500) NOT NULL,
+    MODIFY `lookingFor` VARCHAR(500) NOT NULL;

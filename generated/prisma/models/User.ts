@@ -328,8 +328,8 @@ export type UserWhereInput = {
   state?: Prisma.StringNullableFilter<"User"> | string | null
   city?: Prisma.StringNullableFilter<"User"> | string | null
   address?: Prisma.StringNullableFilter<"User"> | string | null
-  requestsRecived?: Prisma.RequestListRelationFilter
-  requestsSend?: Prisma.RequestListRelationFilter
+  requestsRecived?: Prisma.RequestConnectionListRelationFilter
+  requestsSend?: Prisma.RequestConnectionListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -352,8 +352,8 @@ export type UserOrderByWithRelationInput = {
   state?: Prisma.SortOrderInput | Prisma.SortOrder
   city?: Prisma.SortOrderInput | Prisma.SortOrder
   address?: Prisma.SortOrderInput | Prisma.SortOrder
-  requestsRecived?: Prisma.RequestOrderByRelationAggregateInput
-  requestsSend?: Prisma.RequestOrderByRelationAggregateInput
+  requestsRecived?: Prisma.requestConnectionOrderByRelationAggregateInput
+  requestsSend?: Prisma.requestConnectionOrderByRelationAggregateInput
   _relevance?: Prisma.UserOrderByRelevanceInput
 }
 
@@ -380,8 +380,8 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   state?: Prisma.StringNullableFilter<"User"> | string | null
   city?: Prisma.StringNullableFilter<"User"> | string | null
   address?: Prisma.StringNullableFilter<"User"> | string | null
-  requestsRecived?: Prisma.RequestListRelationFilter
-  requestsSend?: Prisma.RequestListRelationFilter
+  requestsRecived?: Prisma.RequestConnectionListRelationFilter
+  requestsSend?: Prisma.RequestConnectionListRelationFilter
 }, "id" | "email" | "password">
 
 export type UserOrderByWithAggregationInput = {
@@ -455,8 +455,8 @@ export type UserCreateInput = {
   state?: string | null
   city?: string | null
   address?: string | null
-  requestsRecived?: Prisma.RequestCreateNestedManyWithoutToInput
-  requestsSend?: Prisma.RequestCreateNestedManyWithoutFromInput
+  requestsRecived?: Prisma.requestConnectionCreateNestedManyWithoutToInput
+  requestsSend?: Prisma.requestConnectionCreateNestedManyWithoutFromInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -479,8 +479,8 @@ export type UserUncheckedCreateInput = {
   state?: string | null
   city?: string | null
   address?: string | null
-  requestsRecived?: Prisma.RequestUncheckedCreateNestedManyWithoutToInput
-  requestsSend?: Prisma.RequestUncheckedCreateNestedManyWithoutFromInput
+  requestsRecived?: Prisma.requestConnectionUncheckedCreateNestedManyWithoutToInput
+  requestsSend?: Prisma.requestConnectionUncheckedCreateNestedManyWithoutFromInput
 }
 
 export type UserUpdateInput = {
@@ -502,8 +502,8 @@ export type UserUpdateInput = {
   state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  requestsRecived?: Prisma.RequestUpdateManyWithoutToNestedInput
-  requestsSend?: Prisma.RequestUpdateManyWithoutFromNestedInput
+  requestsRecived?: Prisma.requestConnectionUpdateManyWithoutToNestedInput
+  requestsSend?: Prisma.requestConnectionUpdateManyWithoutFromNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -526,8 +526,8 @@ export type UserUncheckedUpdateInput = {
   state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  requestsRecived?: Prisma.RequestUncheckedUpdateManyWithoutToNestedInput
-  requestsSend?: Prisma.RequestUncheckedUpdateManyWithoutFromNestedInput
+  requestsRecived?: Prisma.requestConnectionUncheckedUpdateManyWithoutToNestedInput
+  requestsSend?: Prisma.requestConnectionUncheckedUpdateManyWithoutFromNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -763,7 +763,7 @@ export type UserCreateWithoutRequestsSendInput = {
   state?: string | null
   city?: string | null
   address?: string | null
-  requestsRecived?: Prisma.RequestCreateNestedManyWithoutToInput
+  requestsRecived?: Prisma.requestConnectionCreateNestedManyWithoutToInput
 }
 
 export type UserUncheckedCreateWithoutRequestsSendInput = {
@@ -786,7 +786,7 @@ export type UserUncheckedCreateWithoutRequestsSendInput = {
   state?: string | null
   city?: string | null
   address?: string | null
-  requestsRecived?: Prisma.RequestUncheckedCreateNestedManyWithoutToInput
+  requestsRecived?: Prisma.requestConnectionUncheckedCreateNestedManyWithoutToInput
 }
 
 export type UserCreateOrConnectWithoutRequestsSendInput = {
@@ -813,7 +813,7 @@ export type UserCreateWithoutRequestsRecivedInput = {
   state?: string | null
   city?: string | null
   address?: string | null
-  requestsSend?: Prisma.RequestCreateNestedManyWithoutFromInput
+  requestsSend?: Prisma.requestConnectionCreateNestedManyWithoutFromInput
 }
 
 export type UserUncheckedCreateWithoutRequestsRecivedInput = {
@@ -836,7 +836,7 @@ export type UserUncheckedCreateWithoutRequestsRecivedInput = {
   state?: string | null
   city?: string | null
   address?: string | null
-  requestsSend?: Prisma.RequestUncheckedCreateNestedManyWithoutFromInput
+  requestsSend?: Prisma.requestConnectionUncheckedCreateNestedManyWithoutFromInput
 }
 
 export type UserCreateOrConnectWithoutRequestsRecivedInput = {
@@ -874,7 +874,7 @@ export type UserUpdateWithoutRequestsSendInput = {
   state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  requestsRecived?: Prisma.RequestUpdateManyWithoutToNestedInput
+  requestsRecived?: Prisma.requestConnectionUpdateManyWithoutToNestedInput
 }
 
 export type UserUncheckedUpdateWithoutRequestsSendInput = {
@@ -897,7 +897,7 @@ export type UserUncheckedUpdateWithoutRequestsSendInput = {
   state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  requestsRecived?: Prisma.RequestUncheckedUpdateManyWithoutToNestedInput
+  requestsRecived?: Prisma.requestConnectionUncheckedUpdateManyWithoutToNestedInput
 }
 
 export type UserUpsertWithoutRequestsRecivedInput = {
@@ -930,7 +930,7 @@ export type UserUpdateWithoutRequestsRecivedInput = {
   state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  requestsSend?: Prisma.RequestUpdateManyWithoutFromNestedInput
+  requestsSend?: Prisma.requestConnectionUpdateManyWithoutFromNestedInput
 }
 
 export type UserUncheckedUpdateWithoutRequestsRecivedInput = {
@@ -953,7 +953,7 @@ export type UserUncheckedUpdateWithoutRequestsRecivedInput = {
   state?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  requestsSend?: Prisma.RequestUncheckedUpdateManyWithoutFromNestedInput
+  requestsSend?: Prisma.requestConnectionUncheckedUpdateManyWithoutFromNestedInput
 }
 
 
@@ -985,14 +985,14 @@ export type UserCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensi
  * UserCountOutputType without action
  */
 export type UserCountOutputTypeCountRequestsRecivedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.RequestWhereInput
+  where?: Prisma.requestConnectionWhereInput
 }
 
 /**
  * UserCountOutputType without action
  */
 export type UserCountOutputTypeCountRequestsSendArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.RequestWhereInput
+  where?: Prisma.requestConnectionWhereInput
 }
 
 
@@ -1055,8 +1055,8 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
 export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "User"
   objects: {
-    requestsRecived: Prisma.$RequestPayload<ExtArgs>[]
-    requestsSend: Prisma.$RequestPayload<ExtArgs>[]
+    requestsRecived: Prisma.$requestConnectionPayload<ExtArgs>[]
+    requestsSend: Prisma.$requestConnectionPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1418,8 +1418,8 @@ readonly fields: UserFieldRefs;
  */
 export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  requestsRecived<T extends Prisma.User$requestsRecivedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$requestsRecivedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RequestPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  requestsSend<T extends Prisma.User$requestsSendArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$requestsSendArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RequestPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  requestsRecived<T extends Prisma.User$requestsRecivedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$requestsRecivedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$requestConnectionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  requestsSend<T extends Prisma.User$requestsSendArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$requestsSendArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$requestConnectionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1820,23 +1820,23 @@ export type UserDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Internal
  */
 export type User$requestsRecivedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Request
+   * Select specific fields to fetch from the requestConnection
    */
-  select?: Prisma.RequestSelect<ExtArgs> | null
+  select?: Prisma.requestConnectionSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Request
+   * Omit specific fields from the requestConnection
    */
-  omit?: Prisma.RequestOmit<ExtArgs> | null
+  omit?: Prisma.requestConnectionOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.RequestInclude<ExtArgs> | null
-  where?: Prisma.RequestWhereInput
-  orderBy?: Prisma.RequestOrderByWithRelationInput | Prisma.RequestOrderByWithRelationInput[]
-  cursor?: Prisma.RequestWhereUniqueInput
+  include?: Prisma.requestConnectionInclude<ExtArgs> | null
+  where?: Prisma.requestConnectionWhereInput
+  orderBy?: Prisma.requestConnectionOrderByWithRelationInput | Prisma.requestConnectionOrderByWithRelationInput[]
+  cursor?: Prisma.requestConnectionWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.RequestScalarFieldEnum | Prisma.RequestScalarFieldEnum[]
+  distinct?: Prisma.RequestConnectionScalarFieldEnum | Prisma.RequestConnectionScalarFieldEnum[]
 }
 
 /**
@@ -1844,23 +1844,23 @@ export type User$requestsRecivedArgs<ExtArgs extends runtime.Types.Extensions.In
  */
 export type User$requestsSendArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Request
+   * Select specific fields to fetch from the requestConnection
    */
-  select?: Prisma.RequestSelect<ExtArgs> | null
+  select?: Prisma.requestConnectionSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Request
+   * Omit specific fields from the requestConnection
    */
-  omit?: Prisma.RequestOmit<ExtArgs> | null
+  omit?: Prisma.requestConnectionOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.RequestInclude<ExtArgs> | null
-  where?: Prisma.RequestWhereInput
-  orderBy?: Prisma.RequestOrderByWithRelationInput | Prisma.RequestOrderByWithRelationInput[]
-  cursor?: Prisma.RequestWhereUniqueInput
+  include?: Prisma.requestConnectionInclude<ExtArgs> | null
+  where?: Prisma.requestConnectionWhereInput
+  orderBy?: Prisma.requestConnectionOrderByWithRelationInput | Prisma.requestConnectionOrderByWithRelationInput[]
+  cursor?: Prisma.requestConnectionWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.RequestScalarFieldEnum | Prisma.RequestScalarFieldEnum[]
+  distinct?: Prisma.RequestConnectionScalarFieldEnum | Prisma.RequestConnectionScalarFieldEnum[]
 }
 
 /**

@@ -1,6 +1,5 @@
 import { prismaAdapter } from "../lib/prismaAdapter.ts";
 import { type Request, type Response } from "express";
-import jwt from "jsonwebtoken";
 import "dotenv/config";
 import { getUserById } from "../services/user.service.ts";
 import { userResponseSchema } from "../schema/index.ts";
