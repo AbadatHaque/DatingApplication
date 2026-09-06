@@ -60,7 +60,7 @@ export async function tokenValidation(
         message: "token not valid",
       });
     }
-    // req.userId = decoded.id;
+    req.userId = decoded.id;
     return next();
   } catch (err) {
     res.status(500).json({

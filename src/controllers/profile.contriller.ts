@@ -13,11 +13,18 @@ export class Profile {
    async show (req: Request, res: Response){
     try {
         const id = Number(req.userId);
+        console.log(1)
       const user = await getUserById(id)
+        console.log(2)
+
       if (!user) {
         return res.status(404).json({ message: "User not found" });
       } 
+        console.log(3)
+
     const response = userResponseSchema.parse(user);
+        console.log(4)
+
       return res.status(200).json({
         message: "User find successsfully",
         user:response

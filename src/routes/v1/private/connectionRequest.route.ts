@@ -3,7 +3,7 @@
 import  Express  from "express"
 import { ConnectionController } from "../../../controllers/connectionRequest.controller.ts"
 
-const connectionRoute = Express.Router()
+export const connectionRoute = Express.Router()
 
 connectionRoute.get('/request/:status/:toId', ConnectionController.request)
 connectionRoute.get('/response/:status/:toId', ConnectionController.request)
