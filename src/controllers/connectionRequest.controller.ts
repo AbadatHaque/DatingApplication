@@ -2,6 +2,10 @@ import { type Request, type Response } from "express";
 import { Status } from "../../generated/prisma/enums.ts";
 import { prismaAdapter } from "../lib/prismaAdapter.ts";
 import { findExistingRequest } from "../services/index.ts";
+
+type ResponseStatus = Extract<Status, "ACCEPT" | "REJECT">;
+type RequestStatus = Extract<Status, "LIKE" | "DISLIKE">;
+
 class ConnectionRequestController {
   constructor() {
     this.request = this.request.bind(this);
@@ -53,7 +57,10 @@ class ConnectionRequestController {
     }
   }
 
-  async request(req: Request<{ status: Status; toId: string }>, res: Response) {
+  async request(
+    req: Request<{ status: RequestStatus; toId: string }>,
+    res: Response,
+  ) {
     try {
       const { status, toId } = req.params;
       const fromId = req.userId;
@@ -76,17 +83,34 @@ class ConnectionRequestController {
       });
     }
   }
-
   async response(
-    req: Request<{ status: Status; toId: string }>,
+    req: Request<{ status: ResponseStatus; requestId: string }>,
     res: Response,
   ) {
     try {
-      const { status, toId } = req.params;
-      const fromId = req.userId;
-      const parsedToId: number = Number(toId);
-      await this.validation(req, res);
-    } catch (error) {}
+      const { status, requestId } = req.params;
+      const parsedRequestId: number = Number(requestId);
+      const result = await prismaAdapter.requestConnection.updateMany({
+        where: { id: parsedRequestId, status: "LIKE" },
+        data: {
+          status,
+        },
+      });
+      if (result.count === 0) {
+        throw new Error(
+          "Request does not exist or its current status is not LIKE",
+        );
+      }
+      return res.status(201).json({
+        message: "Request sent successfully",
+        result,
+      });
+    } catch (error) {
+      res.status(500).json({
+        message: "message invalid",
+        error,
+      });
+    }
   }
 }
 export const ConnectionController = new ConnectionRequestController();
