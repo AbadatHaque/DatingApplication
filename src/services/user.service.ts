@@ -4,6 +4,13 @@ export const getUserById = async (id: number) => {
   try {
     const user = await prismaAdapter.user.findUnique({
       where: { id },
+      include: {
+        requestsSend: {
+          include: {
+            to: true,
+          },
+        },
+      },
     });
     return user;
   } catch (error) {

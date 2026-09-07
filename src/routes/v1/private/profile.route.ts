@@ -7,6 +7,9 @@ export const profileRoute: routeType = Router();
 const ProfileContriller = new Profile();
 
 profileRoute.get("/view", ProfileContriller.show);
-profileRoute.patch("/edit",Validation(updateUserSchema), ProfileContriller.update);
+profileRoute.patch(
+  "/edit",
+  Validation(updateUserSchema),
+  ProfileContriller.update,
+);
 profileRoute.delete("/delete", ProfileContriller.destroy);
-

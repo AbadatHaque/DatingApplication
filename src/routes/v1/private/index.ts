@@ -7,4 +7,4 @@ export const authenticateRoutes = Router();
 
 authenticateRoutes.use(tokenValidation);
 authenticateRoutes.use("/profile", profileRoute);
-authenticateRoutes.use("/connection",connectionRoute)
+authenticateRoutes.use("/connection", connectionRoute);

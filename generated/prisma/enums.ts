@@ -49,7 +49,7 @@ export type MarriageTimeline = (typeof MarriageTimeline)[keyof typeof MarriageTi
 
 
 export const Status = {
-  REQUEST: 'REQUEST',
+  LIKE: 'LIKE',
   DISLIKE: 'DISLIKE',
   REJECT: 'REJECT',
   ACCEPT: 'ACCEPT'

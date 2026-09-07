@@ -1,14 +1,11 @@
-
 // connect request
-import  Express  from "express"
-import { ConnectionController } from "../../../controllers/connectionRequest.controller.ts"
+import Express from "express";
+import { ConnectionController } from "../../../controllers/connectionRequest.controller.ts";
 
-export const connectionRoute = Express.Router()
+export const connectionRoute = Express.Router();
 
-connectionRoute.get('/request/:status/:toId', ConnectionController.request)
-connectionRoute.get('/response/:status/:toId', ConnectionController.request)
-
-
+connectionRoute.get("/request/:status/:toId", ConnectionController.request);
+connectionRoute.get("/response/:status/:toId", ConnectionController.request);
 
 // request/like/:id
 // request/dislike/:id
@@ -16,7 +13,4 @@ connectionRoute.get('/response/:status/:toId', ConnectionController.request)
 // response/reject/:id
 
 // status - like , dislike
-// accept, reject 
-
-
-
+// accept, reject
