@@ -10,6 +10,7 @@ export async function findExistingRequest(fromId: number, toId: number) {
         ],
       },
     });
+    console.log(findExistingRequest, "findExistingRequest");
     return existingRequest;
   } catch (error) {
     if (error instanceof Error) {

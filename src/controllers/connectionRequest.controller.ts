@@ -89,16 +89,26 @@ class ConnectionRequestController {
   ) {
     try {
       const { status, requestId } = req.params;
+      const loginUserId = req.userId;
+      const paeseLoginUserId: number = Number(loginUserId);
       const parsedRequestId: number = Number(requestId);
-      const result = await prismaAdapter.requestConnection.updateMany({
+      const user = await prismaAdapter.requestConnection.findFirstOrThrow({
+        where: { id: parsedRequestId },
+      });
+      if (user.to_id !== paeseLoginUserId) {
+        res.status(400).json({
+          message: "You can not change the password",
+        });
+      }
+      const result = await prismaAdapter.requestConnection.update({
         where: { id: parsedRequestId, status: "LIKE" },
         data: {
           status,
         },
       });
-      if (result.count === 0) {
+      if (!result) {
         throw new Error(
-          "Request does not exist or its current status is not LIKE",
+          "Request does not exist or it's current status is not" + { status },
         );
       }
       return res.status(201).json({
