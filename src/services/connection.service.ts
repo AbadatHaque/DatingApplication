@@ -5,8 +5,8 @@ export async function findExistingRequest(fromId: number, toId: number) {
     const existingRequest = await prismaAdapter.requestConnection.findFirst({
       where: {
         OR: [
-          { from_id: fromId, to_id: toId },
-          { from_id: toId, to_id: fromId },
+          { fromId, toId },
+          { fromId: toId, toId: fromId },
         ],
       },
     });

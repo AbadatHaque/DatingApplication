@@ -4,15 +4,19 @@ import { ConnectionController } from "../../../controllers/connectionRequest.con
 
 export const connectionRoute = Express.Router();
 
-connectionRoute.post("/request/:status/:toId", ConnectionController.sentRequest);
-// To see all the list of user who like me 
+connectionRoute.post(
+  "/request/:status/:toId",
+  ConnectionController.sentRequest,
+);
+// To see all the list of user who like me
 
-
-// to see all the user who reject me or accept me 
+// to see all the user who reject me or accept me
 connectionRoute.patch(
   "/response/:status/:requestId",
   ConnectionController.response,
 );
+
+connectionRoute.get("/request/:status", ConnectionController.getRequest);
 
 // request/like/:id
 // request/dislike/:id
