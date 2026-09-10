@@ -1,80 +1,84 @@
 import { type Request, type Response } from "express";
 import { Status } from "../../generated/prisma/enums.ts";
 import { prismaAdapter } from "../lib/prismaAdapter.ts";
-import { findExistingRequest } from "../services/index.ts";
+import { findExistingRequest, getUserById } from "../services/index.ts";
 
-type ResponseStatus = Extract<Status, "ACCEPT" | "REJECT">;
-type RequestStatus = Extract<Status, "LIKE" | "DISLIKE">;
+const allowRequestStatus = [Status.like,Status.dislike] as const
+const allowResponseStatus = [Status.rejected,Status.accepted] as const
+type ResponseStatusType = typeof allowResponseStatus[number];
+type RequestStatusType = typeof allowRequestStatus[number];
+
 
 class ConnectionRequestController {
   constructor() {
-    this.request = this.request.bind(this);
+    this.sentRequest = this.sentRequest.bind(this);
+    this.response = this.response.bind(this)
   }
+  async getRequest(req: Request<{ status: RequestStatusType | ResponseStatusType; toId: string }>,
+    res: Response,){
+      try{
+        // status 
+        let whereId = ''
+        const loginUserId = req.userId
+        const paeseLoginUserId = Number(loginUserId)
+        const status:RequestStatusType | ResponseStatusType = req.params.status
+        if(allowRequestStatus.includes(status)){
+          whereId = 'toId'
+        }else if(allowResponseStatus.includes(status)){
+          whereId = 'fronId',status
+        }
+       const request =  await prismaAdapter.requestConnection.findMany({
+          where:{[whereId]:paeseLoginUserId},
+          include: {"to":true}
+        })
+      }catch(error){
 
-  async validation(
-    req: Request<{ status: Status; toId: string }>,
+      }
+  }
+  async sentRequest(
+    req: Request<{ status: RequestStatusType; toId: string }>,
     res: Response,
   ) {
     try {
       const { status, toId } = req.params;
-      if (!req.userId) {
-        return res.status(401).json({
-          message: "Unauthorized",
-        });
-      }
-      const fromId = req.userId;
-      const parsedToId = Number(toId);
-
-      if (Number.isNaN(parsedToId)) {
-        return res.status(400).json({
-          message: "Invalid user ID",
-        });
-      }
-
-      // User cannot send request to himself
-      if (parsedToId === fromId) {
-        return res.status(400).json({
-          message: "You cannot send a request to yourself",
-        });
-      }
-
-      // Check A -> B OR B -> A
-      const existingRequest = await findExistingRequest(parsedToId, fromId);
-      if (existingRequest) {
-        return res.status(400).json({
-          message: "You cannot send a request because a request already exists",
-        });
-      }
-      if (!Object.values(Status).includes(status as Status)) {
-        return res.status(400).json({
-          message: "Invalid status",
-        });
-      }
-    } catch (error) {
-      res.status(500).json({
-        message: "Something has error",
-      });
-    }
-  }
-
-  async request(
-    req: Request<{ status: RequestStatus; toId: string }>,
-    res: Response,
-  ) {
-    try {
-      const { status, toId } = req.params;
-      const fromId = req.userId;
+      const fromId = req.userId ;
       const parsedToId: number = Number(toId);
-      await this.validation(req, res);
-      await prismaAdapter.requestConnection.create({
+      const parsedFromId= Number(fromId)
+      // 1. check status in valid 
+      // 2. users ids not present
+      // 3. toId is valid user
+      // 4. from user not equal to toId
+      if(parsedToId === parsedFromId){
+         return res.status(404).json({
+          message:"you can not request yourself"
+        })
+      }
+      if(!allowRequestStatus.includes(status)){
+        return res.status(404).json({
+          message:"Status is not valid"
+        })
+      }
+      const toUser = await getUserById(parsedToId)
+      if(!toUser){
+       return res.status(404).json({
+          message:"toUseriD not valid"
+        })
+      }
+      const existingRequest = await findExistingRequest(parsedToId, parsedFromId);
+      if(existingRequest){
+       return res.status(404).json({
+          message:"This is existing request"
+        })
+      }
+      const data = await prismaAdapter.requestConnection.create({
         data: {
-          to_id: parsedToId as number,
-          from_id: fromId as number,
+          toId: parsedToId as number,
+          fromId: parsedFromId as number,
           status,
         },
       });
       return res.status(201).json({
-        message: "Request sent successfully",
+        message: "Request sent successfully",data
       });
     } catch (error) {
       res.status(500).json({
@@ -84,7 +88,7 @@ class ConnectionRequestController {
     }
   }
   async response(
-    req: Request<{ status: ResponseStatus; requestId: string }>,
+    req: Request<{ status: ResponseStatusType; requestId: string }>,
     res: Response,
   ) {
     try {
@@ -92,27 +96,37 @@ class ConnectionRequestController {
       const loginUserId = req.userId;
       const paeseLoginUserId: number = Number(loginUserId);
       const parsedRequestId: number = Number(requestId);
-      const user = await prismaAdapter.requestConnection.findFirstOrThrow({
-        where: { id: parsedRequestId },
-      });
-      if (user.to_id !== paeseLoginUserId) {
-        res.status(400).json({
-          message: "You can not change the password",
-        });
+
+      /// parsedRequestId is valid 
+      // 2. currnt status is like
+      // 3. status valid 
+      if(!allowResponseStatus.includes(status)){
+        return res.status(404).json({
+          message:"Status is not valid"
+        })
       }
-      const result = await prismaAdapter.requestConnection.update({
-        where: { id: parsedRequestId, status: "LIKE" },
-        data: {
-          status,
-        },
-      });
-      if (!result) {
-        throw new Error(
-          "Request does not exist or it's current status is not" + { status },
-        );
+      const connectionData = await prismaAdapter.requestConnection.findFirstOrThrow({
+        where:{
+          id:parsedRequestId
+        }
+      })
+      if(!connectionData){
+       return res.status(400).json({
+          message:"Wrong request id"
+        })
       }
+      if(connectionData.status !== "like"){
+        return res.status(400).json({message:"You can not response to this request"})
+      }
+
+     const result = await prismaAdapter.requestConnection.update({
+        where:{id:parsedRequestId},
+        data:{
+          status
+        }
+      })
       return res.status(201).json({
-        message: "Request sent successfully",
+        message: "Status has been change successfully",
         result,
       });
     } catch (error) {
@@ -124,3 +138,17 @@ class ConnectionRequestController {
   }
 }
 export const ConnectionController = new ConnectionRequestController();
+
+
+
+// ✅ 2xx Success200 OK: The standard success code. Your request worked, and the data is here.
+// 201 Created: Success! A new record was successfully created (perfect for when a user successfully submits a new connection request).
+// 🔀 3xx Redirection301 Moved Permanently: The webpage has a brand new web address forever.
+// 304 Not Modified: Nothing has changed since you last looked. Use your saved cache version to save speed.❌ 
+// 4xx Client Errors (Your code or user input is wrong)
+// 400 Bad Request: The server cannot understand your request (e.g., missing data or bad syntax).
+// 401 Unauthorized: You aren't logged in. You need credentials to see this.403 Forbidden: You are logged in, but you don't have permission to see this specific data.
+// 404 Not Found: The classic error. The page, route, or database record does not exist.💥
+//  5xx Server Errors (Your backend server crashed)
+// 500 Internal Server Error: A generic catch-all crash code. Usually means your backend Node.js/Prisma code threw an unhandled exception or error.
+// 503 Service Unavailable: The server is overloaded or down for maintenance.

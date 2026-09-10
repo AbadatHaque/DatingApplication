@@ -28,34 +28,34 @@ export type AggregateRequestConnection = {
 
 export type RequestConnectionAvgAggregateOutputType = {
   id: number | null
-  from_id: number | null
-  to_id: number | null
+  fromId: number | null
+  toId: number | null
 }
 
 export type RequestConnectionSumAggregateOutputType = {
   id: number | null
-  from_id: number | null
-  to_id: number | null
+  fromId: number | null
+  toId: number | null
 }
 
 export type RequestConnectionMinAggregateOutputType = {
   id: number | null
-  from_id: number | null
-  to_id: number | null
+  fromId: number | null
+  toId: number | null
   status: $Enums.Status | null
 }
 
 export type RequestConnectionMaxAggregateOutputType = {
   id: number | null
-  from_id: number | null
-  to_id: number | null
+  fromId: number | null
+  toId: number | null
   status: $Enums.Status | null
 }
 
 export type RequestConnectionCountAggregateOutputType = {
   id: number
-  from_id: number
-  to_id: number
+  fromId: number
+  toId: number
   status: number
   _all: number
 }
@@ -63,34 +63,34 @@ export type RequestConnectionCountAggregateOutputType = {
 
 export type RequestConnectionAvgAggregateInputType = {
   id?: true
-  from_id?: true
-  to_id?: true
+  fromId?: true
+  toId?: true
 }
 
 export type RequestConnectionSumAggregateInputType = {
   id?: true
-  from_id?: true
-  to_id?: true
+  fromId?: true
+  toId?: true
 }
 
 export type RequestConnectionMinAggregateInputType = {
   id?: true
-  from_id?: true
-  to_id?: true
+  fromId?: true
+  toId?: true
   status?: true
 }
 
 export type RequestConnectionMaxAggregateInputType = {
   id?: true
-  from_id?: true
-  to_id?: true
+  fromId?: true
+  toId?: true
   status?: true
 }
 
 export type RequestConnectionCountAggregateInputType = {
   id?: true
-  from_id?: true
-  to_id?: true
+  fromId?: true
+  toId?: true
   status?: true
   _all?: true
 }
@@ -183,8 +183,8 @@ export type requestConnectionGroupByArgs<ExtArgs extends runtime.Types.Extension
 
 export type RequestConnectionGroupByOutputType = {
   id: number
-  from_id: number
-  to_id: number
+  fromId: number
+  toId: number
   status: $Enums.Status
   _count: RequestConnectionCountAggregateOutputType | null
   _avg: RequestConnectionAvgAggregateOutputType | null
@@ -213,8 +213,8 @@ export type requestConnectionWhereInput = {
   OR?: Prisma.requestConnectionWhereInput[]
   NOT?: Prisma.requestConnectionWhereInput | Prisma.requestConnectionWhereInput[]
   id?: Prisma.IntFilter<"requestConnection"> | number
-  from_id?: Prisma.IntFilter<"requestConnection"> | number
-  to_id?: Prisma.IntFilter<"requestConnection"> | number
+  fromId?: Prisma.IntFilter<"requestConnection"> | number
+  toId?: Prisma.IntFilter<"requestConnection"> | number
   status?: Prisma.EnumStatusFilter<"requestConnection"> | $Enums.Status
   from?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   to?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -222,8 +222,8 @@ export type requestConnectionWhereInput = {
 
 export type requestConnectionOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  from_id?: Prisma.SortOrder
-  to_id?: Prisma.SortOrder
+  fromId?: Prisma.SortOrder
+  toId?: Prisma.SortOrder
   status?: Prisma.SortOrder
   from?: Prisma.UserOrderByWithRelationInput
   to?: Prisma.UserOrderByWithRelationInput
@@ -231,20 +231,21 @@ export type requestConnectionOrderByWithRelationInput = {
 
 export type requestConnectionWhereUniqueInput = Prisma.AtLeast<{
   id?: number
+  fromId_toId?: Prisma.requestConnectionFromIdToIdCompoundUniqueInput
   AND?: Prisma.requestConnectionWhereInput | Prisma.requestConnectionWhereInput[]
   OR?: Prisma.requestConnectionWhereInput[]
   NOT?: Prisma.requestConnectionWhereInput | Prisma.requestConnectionWhereInput[]
-  from_id?: Prisma.IntFilter<"requestConnection"> | number
-  to_id?: Prisma.IntFilter<"requestConnection"> | number
+  fromId?: Prisma.IntFilter<"requestConnection"> | number
+  toId?: Prisma.IntFilter<"requestConnection"> | number
   status?: Prisma.EnumStatusFilter<"requestConnection"> | $Enums.Status
   from?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   to?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-}, "id">
+}, "id" | "fromId_toId">
 
 export type requestConnectionOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  from_id?: Prisma.SortOrder
-  to_id?: Prisma.SortOrder
+  fromId?: Prisma.SortOrder
+  toId?: Prisma.SortOrder
   status?: Prisma.SortOrder
   _count?: Prisma.requestConnectionCountOrderByAggregateInput
   _avg?: Prisma.requestConnectionAvgOrderByAggregateInput
@@ -258,8 +259,8 @@ export type requestConnectionScalarWhereWithAggregatesInput = {
   OR?: Prisma.requestConnectionScalarWhereWithAggregatesInput[]
   NOT?: Prisma.requestConnectionScalarWhereWithAggregatesInput | Prisma.requestConnectionScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"requestConnection"> | number
-  from_id?: Prisma.IntWithAggregatesFilter<"requestConnection"> | number
-  to_id?: Prisma.IntWithAggregatesFilter<"requestConnection"> | number
+  fromId?: Prisma.IntWithAggregatesFilter<"requestConnection"> | number
+  toId?: Prisma.IntWithAggregatesFilter<"requestConnection"> | number
   status?: Prisma.EnumStatusWithAggregatesFilter<"requestConnection"> | $Enums.Status
 }
 
@@ -271,8 +272,8 @@ export type requestConnectionCreateInput = {
 
 export type requestConnectionUncheckedCreateInput = {
   id?: number
-  from_id: number
-  to_id: number
+  fromId: number
+  toId: number
   status: $Enums.Status
 }
 
@@ -284,15 +285,15 @@ export type requestConnectionUpdateInput = {
 
 export type requestConnectionUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  from_id?: Prisma.IntFieldUpdateOperationsInput | number
-  to_id?: Prisma.IntFieldUpdateOperationsInput | number
+  fromId?: Prisma.IntFieldUpdateOperationsInput | number
+  toId?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
 }
 
 export type requestConnectionCreateManyInput = {
   id?: number
-  from_id: number
-  to_id: number
+  fromId: number
+  toId: number
   status: $Enums.Status
 }
 
@@ -302,8 +303,8 @@ export type requestConnectionUpdateManyMutationInput = {
 
 export type requestConnectionUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  from_id?: Prisma.IntFieldUpdateOperationsInput | number
-  to_id?: Prisma.IntFieldUpdateOperationsInput | number
+  fromId?: Prisma.IntFieldUpdateOperationsInput | number
+  toId?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
 }
 
@@ -317,37 +318,42 @@ export type requestConnectionOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
 }
 
+export type requestConnectionFromIdToIdCompoundUniqueInput = {
+  fromId: number
+  toId: number
+}
+
 export type requestConnectionCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  from_id?: Prisma.SortOrder
-  to_id?: Prisma.SortOrder
+  fromId?: Prisma.SortOrder
+  toId?: Prisma.SortOrder
   status?: Prisma.SortOrder
 }
 
 export type requestConnectionAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  from_id?: Prisma.SortOrder
-  to_id?: Prisma.SortOrder
+  fromId?: Prisma.SortOrder
+  toId?: Prisma.SortOrder
 }
 
 export type requestConnectionMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  from_id?: Prisma.SortOrder
-  to_id?: Prisma.SortOrder
+  fromId?: Prisma.SortOrder
+  toId?: Prisma.SortOrder
   status?: Prisma.SortOrder
 }
 
 export type requestConnectionMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  from_id?: Prisma.SortOrder
-  to_id?: Prisma.SortOrder
+  fromId?: Prisma.SortOrder
+  toId?: Prisma.SortOrder
   status?: Prisma.SortOrder
 }
 
 export type requestConnectionSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  from_id?: Prisma.SortOrder
-  to_id?: Prisma.SortOrder
+  fromId?: Prisma.SortOrder
+  toId?: Prisma.SortOrder
 }
 
 export type requestConnectionCreateNestedManyWithoutToInput = {
@@ -445,7 +451,7 @@ export type requestConnectionCreateWithoutToInput = {
 
 export type requestConnectionUncheckedCreateWithoutToInput = {
   id?: number
-  from_id: number
+  fromId: number
   status: $Enums.Status
 }
 
@@ -466,7 +472,7 @@ export type requestConnectionCreateWithoutFromInput = {
 
 export type requestConnectionUncheckedCreateWithoutFromInput = {
   id?: number
-  to_id: number
+  toId: number
   status: $Enums.Status
 }
 
@@ -501,8 +507,8 @@ export type requestConnectionScalarWhereInput = {
   OR?: Prisma.requestConnectionScalarWhereInput[]
   NOT?: Prisma.requestConnectionScalarWhereInput | Prisma.requestConnectionScalarWhereInput[]
   id?: Prisma.IntFilter<"requestConnection"> | number
-  from_id?: Prisma.IntFilter<"requestConnection"> | number
-  to_id?: Prisma.IntFilter<"requestConnection"> | number
+  fromId?: Prisma.IntFilter<"requestConnection"> | number
+  toId?: Prisma.IntFilter<"requestConnection"> | number
   status?: Prisma.EnumStatusFilter<"requestConnection"> | $Enums.Status
 }
 
@@ -524,13 +530,13 @@ export type requestConnectionUpdateManyWithWhereWithoutFromInput = {
 
 export type requestConnectionCreateManyToInput = {
   id?: number
-  from_id: number
+  fromId: number
   status: $Enums.Status
 }
 
 export type requestConnectionCreateManyFromInput = {
   id?: number
-  to_id: number
+  toId: number
   status: $Enums.Status
 }
 
@@ -541,13 +547,13 @@ export type requestConnectionUpdateWithoutToInput = {
 
 export type requestConnectionUncheckedUpdateWithoutToInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  from_id?: Prisma.IntFieldUpdateOperationsInput | number
+  fromId?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
 }
 
 export type requestConnectionUncheckedUpdateManyWithoutToInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  from_id?: Prisma.IntFieldUpdateOperationsInput | number
+  fromId?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
 }
 
@@ -558,13 +564,13 @@ export type requestConnectionUpdateWithoutFromInput = {
 
 export type requestConnectionUncheckedUpdateWithoutFromInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  to_id?: Prisma.IntFieldUpdateOperationsInput | number
+  toId?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
 }
 
 export type requestConnectionUncheckedUpdateManyWithoutFromInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  to_id?: Prisma.IntFieldUpdateOperationsInput | number
+  toId?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
 }
 
@@ -572,8 +578,8 @@ export type requestConnectionUncheckedUpdateManyWithoutFromInput = {
 
 export type requestConnectionSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  from_id?: boolean
-  to_id?: boolean
+  fromId?: boolean
+  toId?: boolean
   status?: boolean
   from?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   to?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -583,12 +589,12 @@ export type requestConnectionSelect<ExtArgs extends runtime.Types.Extensions.Int
 
 export type requestConnectionSelectScalar = {
   id?: boolean
-  from_id?: boolean
-  to_id?: boolean
+  fromId?: boolean
+  toId?: boolean
   status?: boolean
 }
 
-export type requestConnectionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "from_id" | "to_id" | "status", ExtArgs["result"]["requestConnection"]>
+export type requestConnectionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "fromId" | "toId" | "status", ExtArgs["result"]["requestConnection"]>
 export type requestConnectionInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   from?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   to?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -602,8 +608,8 @@ export type $requestConnectionPayload<ExtArgs extends runtime.Types.Extensions.I
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
-    from_id: number
-    to_id: number
+    fromId: number
+    toId: number
     status: $Enums.Status
   }, ExtArgs["result"]["requestConnection"]>
   composites: {}
@@ -977,8 +983,8 @@ export interface Prisma__requestConnectionClient<T, Null = never, ExtArgs extend
  */
 export interface requestConnectionFieldRefs {
   readonly id: Prisma.FieldRef<"requestConnection", 'Int'>
-  readonly from_id: Prisma.FieldRef<"requestConnection", 'Int'>
-  readonly to_id: Prisma.FieldRef<"requestConnection", 'Int'>
+  readonly fromId: Prisma.FieldRef<"requestConnection", 'Int'>
+  readonly toId: Prisma.FieldRef<"requestConnection", 'Int'>
   readonly status: Prisma.FieldRef<"requestConnection", 'Status'>
 }
     

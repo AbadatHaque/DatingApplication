@@ -13,27 +13,29 @@ datasource db {
 }
 
 enum Gender {
-  MALE
-  FEMALE
-  OTHER
+  male             
+  female           
 }
+
 enum AreaType {
-  RURAL
-  URBAN
+  rural           
+  urban            
 }
+
 enum OccupationType {
-  SALARIED
-  SELF_EMPLOYED
-  BUSINESS
-  STUDENT
-  UNEMPLOYED
-  RETIRED
+  salaried      
+  selfEmployed   
+  business         
+  student          
+  unemployed       
+  retired          
 }
+
 enum MarriageTimeline {
-  WITHIN_1_YEAR
-  ONE_TO_TWO_YEARS
-  TWO_TO_FIVE_YEARS
-  NOT_SURE
+  within1Year    
+  oneToTwoYears 
+  twoToFiveYears 
+  notSure         
 }
 model User {
   id              Int       @id @default(autoincrement())
@@ -44,7 +46,7 @@ model User {
   requestsRecived requestConnection[] @relation("requestReceiver")
   requestsSend    requestConnection[] @relation("requestSender")
 
-  gender Gender
+  gender Gender @unique
   lookingFor String @db.VarChar(500)
   about String @db.VarChar(500)
   areaType AreaType
@@ -62,18 +64,21 @@ model User {
 }
 
 enum Status {
-  LIKE
-  DISLIKE
-  REJECT
-  ACCEPT
+  like     
+  dislike  
+  rejected 
+  accepted 
 }
-model requestConnection {
+model requestConnection {s
   id      Int  @id @default(autoincrement())
-  from_id Int
-  to_id   Int
-  from    User @relation("requestSender", fields: [from_id], references: [id])
-  to      User @relation("requestReceiver", fields: [to_id], references: [id])
+  fromId Int
+  toId   Int
+  from    User @relation("requestSender", fields: [fromId], references: [id])
+  to      User @relation("requestReceiver", fields: [toId], references: [id])
   status Status
+  @@unique([fromId,toId])
+  @@index([fromId,status])
+  @@index([toId,status])
 }
 
 // status - request , dislick

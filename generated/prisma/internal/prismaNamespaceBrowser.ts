@@ -98,8 +98,8 @@ export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof User
 
 export const RequestConnectionScalarFieldEnum = {
   id: 'id',
-  from_id: 'from_id',
-  to_id: 'to_id',
+  fromId: 'fromId',
+  toId: 'toId',
   status: 'status'
 } as const
 

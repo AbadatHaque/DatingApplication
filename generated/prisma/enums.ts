@@ -10,49 +10,48 @@
 */
 
 export const Gender = {
-  MALE: 'MALE',
-  FEMALE: 'FEMALE',
-  OTHER: 'OTHER'
+  male: 'male',
+  female: 'female'
 } as const
 
 export type Gender = (typeof Gender)[keyof typeof Gender]
 
 
 export const AreaType = {
-  RURAL: 'RURAL',
-  URBAN: 'URBAN'
+  rural: 'rural',
+  urban: 'urban'
 } as const
 
 export type AreaType = (typeof AreaType)[keyof typeof AreaType]
 
 
 export const OccupationType = {
-  SALARIED: 'SALARIED',
-  SELF_EMPLOYED: 'SELF_EMPLOYED',
-  BUSINESS: 'BUSINESS',
-  STUDENT: 'STUDENT',
-  UNEMPLOYED: 'UNEMPLOYED',
-  RETIRED: 'RETIRED'
+  salaried: 'salaried',
+  selfEmployed: 'selfEmployed',
+  business: 'business',
+  student: 'student',
+  unemployed: 'unemployed',
+  retired: 'retired'
 } as const
 
 export type OccupationType = (typeof OccupationType)[keyof typeof OccupationType]
 
 
 export const MarriageTimeline = {
-  WITHIN_1_YEAR: 'WITHIN_1_YEAR',
-  ONE_TO_TWO_YEARS: 'ONE_TO_TWO_YEARS',
-  TWO_TO_FIVE_YEARS: 'TWO_TO_FIVE_YEARS',
-  NOT_SURE: 'NOT_SURE'
+  within1Year: 'within1Year',
+  oneToTwoYears: 'oneToTwoYears',
+  twoToFiveYears: 'twoToFiveYears',
+  notSure: 'notSure'
 } as const
 
 export type MarriageTimeline = (typeof MarriageTimeline)[keyof typeof MarriageTimeline]
 
 
 export const Status = {
-  LIKE: 'LIKE',
-  DISLIKE: 'DISLIKE',
-  REJECT: 'REJECT',
-  ACCEPT: 'ACCEPT'
+  like: 'like',
+  dislike: 'dislike',
+  rejected: 'rejected',
+  accepted: 'accepted'
 } as const
 
 export type Status = (typeof Status)[keyof typeof Status]
