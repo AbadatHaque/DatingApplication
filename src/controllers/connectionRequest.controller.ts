@@ -21,7 +21,9 @@ class ConnectionRequestController {
     res: Response,
   ) {
     try {
-      // status
+      // who accepted,rejected me and  I like,dislike  -> from
+
+      // who like,dislike me and I accepted,rejected - > toid
       let whereId = "",
         includeKey = "";
       const loginUserId = req.userId;
@@ -31,7 +33,7 @@ class ConnectionRequestController {
         whereId = "toId";
         includeKey = "from";
       } else if (allowResponseStatus.includes(status as ResponseStatusType)) {
-        whereId = "fronId";
+        whereId = "fromId";
         includeKey = "to";
       }
       if (!whereId) {
@@ -40,8 +42,9 @@ class ConnectionRequestController {
           message: "Status is not valid",
         });
       }
+      console.log(status, whereId);
       const data = await prismaAdapter.requestConnection.findMany({
-        where: { [whereId]: paeseLoginUserId },
+        where: { [whereId]: paeseLoginUserId, status },
         include: { [includeKey]: true },
       });
       return res.status(200).json({

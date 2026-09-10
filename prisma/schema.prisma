@@ -46,7 +46,7 @@ model User {
   requestsRecived requestConnection[] @relation("requestReceiver")
   requestsSend    requestConnection[] @relation("requestSender")
 
-  gender Gender @unique
+  gender Gender 
   lookingFor String @db.VarChar(500)
   about String @db.VarChar(500)
   areaType AreaType

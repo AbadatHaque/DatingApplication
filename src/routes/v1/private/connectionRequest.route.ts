@@ -16,6 +16,16 @@ connectionRoute.patch(
   ConnectionController.response,
 );
 
+// who accepted,rejected,like,dislike me
+// I accepted,rejected,like,dislike
+
+// who accepted,rejected me and  I like,dislike  -> from
+
+// who like,dislike me and I accepted,rejected - > toid
+
+
+
+
 connectionRoute.get("/request/:status", ConnectionController.getRequest);
 
 // request/like/:id
