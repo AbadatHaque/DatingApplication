@@ -4,34 +4,17 @@ import { ConnectionController } from "../../../controllers/connectionRequest.con
 
 export const connectionRoute = Express.Router();
 
+connectionRoute.get("sent", ConnectionController.getSentRequest); // how many connection i sent
+connectionRoute.get("received", ConnectionController.getReceivedRequest); // how many connection i received
+connectionRoute.get("/", ConnectionController.getConnetion); // get all the friend who can chat with me
 connectionRoute.post(
+  // sent like or dislike
   "/request/:status/:toId",
   ConnectionController.sentRequest,
 );
-// To see all the list of user who like me
 
-// to see all the user who reject me or accept me
 connectionRoute.patch(
+  // do rejected to accepted
   "/response/:status/:requestId",
-  ConnectionController.response,
+  ConnectionController.ResponseResponse,
 );
-
-// who accepted,rejected,like,dislike me
-// I accepted,rejected,like,dislike
-
-// who accepted,rejected me and  I like,dislike  -> from
-
-// who like,dislike me and I accepted,rejected - > toid
-
-
-
-
-connectionRoute.get("/request/:status", ConnectionController.getRequest);
-
-// request/like/:id
-// request/dislike/:id
-// response/accept/:id
-// response/reject/:id
-
-// status - like , dislike
-// accept, reject

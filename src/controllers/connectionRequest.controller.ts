@@ -11,52 +11,64 @@ type RequestStatusType = (typeof allowRequestStatus)[number];
 class ConnectionRequestController {
   constructor() {
     this.sentRequest = this.sentRequest.bind(this);
-    this.response = this.response.bind(this);
+    this.ResponseResponse = this.ResponseResponse.bind(this);
+    this.getConnetion = this.getConnetion.bind(this);
+    this.getSentRequest = this.getSentRequest.bind(this);
+    this.getReceivedRequest = this.getReceivedRequest.bind(this);
   }
-  async getRequest(
-    req: Request<{
-      status: RequestStatusType | ResponseStatusType;
-      toId: string;
-    }>,
-    res: Response,
-  ) {
-    try {
-      // who accepted,rejected me and  I like,dislike  -> from
 
-      // who like,dislike me and I accepted,rejected - > toid
-      let whereId = "",
-        includeKey = "";
-      const loginUserId = req.userId;
-      const paeseLoginUserId = Number(loginUserId);
-      const status: RequestStatusType | ResponseStatusType = req.params.status;
-      if (allowRequestStatus.includes(status as RequestStatusType)) {
-        whereId = "toId";
-        includeKey = "from";
-      } else if (allowResponseStatus.includes(status as ResponseStatusType)) {
-        whereId = "fromId";
-        includeKey = "to";
-      }
-      if (!whereId) {
-        // status is not valid
-        return res.status(400).json({
-          message: "Status is not valid",
-        });
-      }
-      console.log(status, whereId);
-      const data = await prismaAdapter.requestConnection.findMany({
-        where: { [whereId]: paeseLoginUserId, status },
-        include: { [includeKey]: true },
+  async getConnetion(req: Request, res: Response) {
+    try {
+      const loginUserId = Number(req.userId);
+      const users = await prismaAdapter.requestConnection.findMany({
+        where: {
+          OR: [
+            { fromId: loginUserId, status: "accepted" },
+            { toId: loginUserId, status: "accepted" },
+          ],
+        },
       });
       return res.status(200).json({
-        message: "Successfully fetch data ",
-        data,
+        message: "Successfully fetch data",
+        data: users,
       });
     } catch (error) {
-      return res.status(500).json({
+      res.status(400).json({
         error,
       });
     }
   }
+  async getReceivedRequest(req: Request, res: Response) {
+    try {
+      const loginUserId = Number(req.userId);
+      const receivedConnections =
+        await prismaAdapter.requestConnection.findMany({
+          where: { toId: loginUserId, status: "like" },
+        });
+      return res.status(200).json({
+        message: "Successfully fetch data",
+        data: receivedConnections,
+      });
+    } catch (error) {
+      return res.status(400).json({ error });
+    }
+  }
+  async getSentRequest(req: Request, res: Response) {
+    try {
+      const loginUserId = Number(req.userId);
+      const receivedConnections =
+        await prismaAdapter.requestConnection.findMany({
+          where: { fromId: loginUserId, status: "like" },
+        });
+      return res.status(200).json({
+        message: "Successfully fetch data",
+        data: receivedConnections,
+      });
+    } catch (error) {
+      return res.status(400).json({ error });
+    }
+  }
+
   async sentRequest(
     req: Request<{ status: RequestStatusType; toId: string }>,
     res: Response,
@@ -113,7 +125,7 @@ class ConnectionRequestController {
       });
     }
   }
-  async response(
+  async ResponseResponse(
     req: Request<{ status: ResponseStatusType; requestId: string }>,
     res: Response,
   ) {
